@@ -1,0 +1,23 @@
+<StackLayout class="sideTitleStackLayout">
+    <!-- <Label class="h2" text="Welcome"></Label> -->
+    <Image width="200" height="80" id="company-logo" src="res://company_logo_grey" stretch="aspectFill" horizontalAlignment="center"></Image>
+</StackLayout>
+<StackLayout class="sideStackLayout">
+    <!-- <Label text="Home" class="sideLabel sideLightGrayLabel" horizontalAlignment="center"></Label>
+    <Label text="Maids" class="sideLabel" horizontalAlignment="center"></Label>
+    <Label text="Technitians" class="sideLabel" horizontalAlignment="center"></Label> -->
+    <StackLayout style="padding-top: 20;" orientation="horizontal" (tap)="goHome()">
+        <Image class="drawer-image" width="50" height="50" src="res://home"></Image>
+        <Label class="drawer-label" style="font-size: 30" text="Home"></Label>
+    </StackLayout>
+    <StackLayout class="drawer-divider" height="2"></StackLayout>
+    <StackLayout style="padding-top: 20;" orientation="horizontal" (tap)="goToMaids()">
+        <Image class="drawer-image" width="50" height="50" src="res://maid"></Image>
+        <Label class="drawer-label" style="font-size: 30" text="Maids"></Label>
+    </StackLayout>
+    <StackLayout class="drawer-divider" height="2"></StackLayout>
+    <StackLayout style="padding-top: 20;" orientation="horizontal" (tap)="goToTechnitians()">
+        <Image class="drawer-image" width="50" height="50" src="res://contractor"></Image>
+        <Label class="drawer-label" style="font-size: 30" text="Technitians"></Label>
+    </StackLayout>
+</StackLayout>

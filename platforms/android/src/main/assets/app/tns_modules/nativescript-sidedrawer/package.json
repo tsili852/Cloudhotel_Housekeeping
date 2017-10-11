@@ -1,0 +1,83 @@
+{
+  "_args": [
+    [
+      "nativescript-sidedrawer@1.0.6",
+      "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping"
+    ]
+  ],
+  "_from": "nativescript-sidedrawer@1.0.6",
+  "_id": "nativescript-sidedrawer@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha1-xCT+t1S7d2QeqJvvUcHVnQFpDQ8=",
+  "_location": "/nativescript-sidedrawer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-sidedrawer@1.0.6",
+    "name": "nativescript-sidedrawer",
+    "escapedName": "nativescript-sidedrawer",
+    "rawSpec": "1.0.6",
+    "saveSpec": null,
+    "fetchSpec": "1.0.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nativescript-sidedrawer/-/nativescript-sidedrawer-1.0.6.tgz",
+  "_spec": "1.0.6",
+  "_where": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping",
+  "author": {
+    "name": "Rob Laverty",
+    "email": "roblav96@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/gethuman/nativescript-sidedrawer/issues"
+  },
+  "description": "SideDrawer menu plugin for Nativescript - iOS/Android.",
+  "devDependencies": {
+    "tns-core-modules": "latest",
+    "tns-platform-declarations": "latest",
+    "typescript": "latest"
+  },
+  "homepage": "https://github.com/gethuman/nativescript-sidedrawer",
+  "keywords": [
+    "main",
+    "menu",
+    "mainmenu",
+    "side",
+    "drawer",
+    "sidedrawer",
+    "nativescript",
+    "ecosystem:nativescript",
+    "nativescript-android",
+    "nativescript-ios",
+    "JavaScript",
+    "Android",
+    "iOS"
+  ],
+  "license": "MIT",
+  "main": "nativescript-sidedrawer",
+  "name": "nativescript-sidedrawer",
+  "nativescript": {
+    "platforms": {
+      "android": "2.3.0",
+      "ios": "2.3.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gethuman/nativescript-sidedrawer.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "demo.android": "npm run preparedemo && cd demo && tns run android",
+    "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
+    "demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
+    "postclone": "npm i && node scripts/postclone.js",
+    "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-sidedrawer && tns plugin add .. && tns install",
+    "setup": "npm i && cd demo && npm i && cd .. && npm run build && cd demo && tns plugin add .. && cd .."
+  },
+  "typings": "index.d.ts",
+  "version": "1.0.6"
+}

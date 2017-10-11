@@ -1,0 +1,72 @@
+{
+  "_args": [
+    [
+      "nativescript-bluetooth@1.2.0",
+      "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping"
+    ]
+  ],
+  "_from": "nativescript-bluetooth@1.2.0",
+  "_id": "nativescript-bluetooth@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha1-MIqAkP/A34K4tR99WSQuzGf9dDU=",
+  "_location": "/nativescript-bluetooth",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-bluetooth@1.2.0",
+    "name": "nativescript-bluetooth",
+    "escapedName": "nativescript-bluetooth",
+    "rawSpec": "1.2.0",
+    "saveSpec": null,
+    "fetchSpec": "1.2.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nativescript-bluetooth/-/nativescript-bluetooth-1.2.0.tgz",
+  "_spec": "1.2.0",
+  "_where": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping",
+  "author": {
+    "name": "Telerik / Eddy Verbruggen",
+    "email": "eddyverbruggen@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/eddyverbruggen/nativescript-bluetooth/issues"
+  },
+  "description": "Connect to and interact with Bluetooth LE peripherals",
+  "devDependencies": {
+    "tns-core-modules": "^3.1.0",
+    "tns-platform-declarations": "^3.1.0"
+  },
+  "homepage": "https://github.com/eddyverbruggen/nativescript-bluetooth",
+  "keywords": [
+    "NativeScript",
+    "BLE",
+    "Bluetooth",
+    "Bluetooth LE",
+    "Bluetooth Smart",
+    "Bluetooth Low Energy"
+  ],
+  "license": "MIT",
+  "main": "bluetooth",
+  "name": "nativescript-bluetooth",
+  "nativescript": {
+    "platforms": {
+      "android": "2.3.0",
+      "ios": "2.3.0"
+    },
+    "plugin": {
+      "nan": "true",
+      "pan": "true",
+      "core3": "true",
+      "category": "Processing"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyverbruggen/nativescript-bluetooth.git"
+  },
+  "typings": "index.d.ts",
+  "version": "1.2.0"
+}

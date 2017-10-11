@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\ic_action_menu.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\ic_action_menu.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\icon.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\ic_menu_white_24dp.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\ic_menu_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\contractor.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\contractor.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\company_logo_grey.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\company_logo_grey.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\home.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\home.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\company_logo.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\company_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-hdpi\\maid.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-hdpi\\maid.png"
+    }
+]

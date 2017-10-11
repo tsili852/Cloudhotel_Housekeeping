@@ -1,0 +1,79 @@
+@import url("~/platform.css");
+@import '~/nativescript-theme-core/css/core.light.css';
+
+Page {
+    background-image: url("res://background");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* font-size: 15; */
+}
+
+TextField {
+    padding: 10;
+    font-size: 13;
+}
+
+.custom-action-bar {
+    padding-top: 10;
+    border-color: transparent; 
+    border-width: 1;
+    background-color:  #1976d2;
+    color: white;
+}
+
+.action-image {
+    width: 40;
+    height: 40;    
+}
+
+.drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.drawerContentButton {
+    margin: 10;
+    horizontal-align: left;
+}
+
+.sideStackLayout {
+    background-color: white;    
+}
+
+.sideTitleStackLayout {
+    padding-top: 10;
+    height: 100;
+    text-align: center;
+    vertical-align: center;
+    background-color: #ffbfaa;
+    color: white;
+}
+
+.drawer-image {
+    margin-left: 30;
+}
+
+.drawer-label {
+    padding-top: 5;
+    padding-left: 20;
+}
+
+.drawer-divider {
+    margin-left: 20;
+    margin-right: 20;
+    margin-top: 5;
+    background-color: #ffbfaa;
+}
+
+.sideTitleStackLayout .h2 {
+    color: white;
+}
+
+.sideLabel {
+    padding: 10;
+}
+
+.sideLightGrayLabel {
+    background-color: lightgray;
+}

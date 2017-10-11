@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\icon.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\contractor.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\contractor.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\company_logo.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\company_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\maid.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\maid.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\home.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\home.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\ic_action_menu.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\ic_action_menu.png"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3\\debug\\drawable-mdpi\\ic_menu_white_24dp.png",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\src\\main\\res\\drawable-mdpi\\ic_menu_white_24dp.png"
+    }
+]

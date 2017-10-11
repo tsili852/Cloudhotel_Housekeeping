@@ -1,0 +1,25 @@
+<ActionBar class="custom-action-bar" title="Technitians">
+        <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
+    </ActionBar>
+    
+    <RadSideDrawer drawerTransition="PushTransition" tkExampleTitle tkToggleNavButton>
+        <StackLayout tkDrawerContent class="sideStackLayout">
+            <drawer-content></drawer-content>
+        </StackLayout>
+        <StackLayout tkMainContent>
+            <GridLayout id="list-container" rows="auto, *">
+                <Label row="0" class="h2 m-t-10 m-b-5" text="Who are you ?" horizontalAlignment="center"></Label>
+                <RadListView row="1" [items]="technitiansList" selectionBehavior="Press">
+                    <ng-template let-item="item">
+                        <StackLayout orientation="vertical">
+                            <StackLayout orientation="horizontal" id="technitian-container">
+                                <Image width="50" height="50" src="res://contractor"></Image>
+                                <Label class="technitian-name" [text]="item.name"></Label>
+                            </StackLayout>
+                            <StackLayout height="2" backgroundColor="#bf360c"></StackLayout>
+                        </StackLayout>
+                    </ng-template>
+                </RadListView>
+            </GridLayout>
+        </StackLayout>
+    </RadSideDrawer>

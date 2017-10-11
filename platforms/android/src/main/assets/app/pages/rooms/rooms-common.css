@@ -1,0 +1,65 @@
+ListView {
+    margin-top:20;
+}
+
+#list-container {
+    background-color: white;
+}
+
+/* Label {
+    font-size: 30;
+    padding-left: 10;
+} */
+
+#room-container {
+    padding-left: 10;
+    padding-top: 10;
+}
+
+.room-name {
+    font-size: 40;
+    margin-left: 10;
+    color: #353333;
+}
+
+.sideStackLayout {
+    background-color: #555555;
+    color: #FFFFFF;
+}
+
+.sideTitleStackLayout {
+    /* padding: 16; */
+    font-weight: bold;
+    background-color: #333333;
+}
+
+.sideLabel {
+    padding: 16;
+}
+
+.listItemStackLayout {
+    /* padding: 16; */
+    background-color: #FFFFFF;
+}
+
+.archiveViewStackLayout {
+    padding: 16;
+    font-size: 24;
+    background-color: rgb(35, 167, 35);
+    color: #FFFFFF;
+}
+
+.deleteViewStackLayout {
+    padding: 16;
+    font-size: 24;
+    background-color: rgb(245, 102, 46);
+    color: #FFFFFF;
+}
+
+.clean {
+    background-color: rgb(202, 241, 202);
+}
+
+.dirty {
+    background-color: rgb(247, 221, 221);
+}
