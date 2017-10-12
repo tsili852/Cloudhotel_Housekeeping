@@ -1,16 +1,12 @@
-// 
+//default elements
+android {
+    productFlavors {
+        "nativescriptripple" {
+            dimension "nativescriptripple"
+        }
+    }
+}
 
 dependencies {
-	compile('com.mikepenz:materialdrawer:5.7.0@aar') {
-		transitive = true
-	}
+    compile 'com.balysv:material-ripple:1.0.2'
 }
-
-android {
-	productFlavors {
-		"nativescriptsidedrawer" {
-			dimension "nativescriptsidedrawer"
-		}
-	}
-}
-

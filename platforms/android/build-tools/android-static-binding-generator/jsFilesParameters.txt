@@ -6,9 +6,12 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\pages\drawer.page.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\pages\maids\maids.component.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\pages\main\main.component.js
+C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\pages\rooms\rooms.component.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\pages\technitians\technitians.component.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\maid\maid-list.service.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\maid\maid.js
+C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\room\room.js
+C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\room\room.service.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\technitian\technitian-list.service.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\shared\technitian\technitian.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations.js
@@ -38,7 +41,6 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\animation-driver.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\animation-engine.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\animation-player.js
-C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\dom-utils.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\transition-animation-engine.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\utils.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\private-imports\util.js
@@ -46,7 +48,6 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\private-imports\render\shared.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations\private-imports\render\transition_animation_engine.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\common\detached-loader.js
-C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\common\utils.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\directives\action-bar.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\directives\dialogs.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\directives\list-view-comp.js
@@ -80,6 +81,8 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-intl\nativescript-intl-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-intl\nativescript-intl.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-pro-ui\scripts\eula-prompt.js
+C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-ripple\ripple-common.js
+C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-ripple\ripple.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-sidedrawer\nativescript-sidedrawer.common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-sidedrawer\nativescript-sidedrawer.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\nativescript-statusbar\statusbar-common.js
@@ -163,7 +166,6 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\image\image.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\image-cache\image-cache-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\image-cache\image-cache.js
-C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\label\label-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\label\label.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\layouts\layout-base-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\layouts\layout-base.js
@@ -219,7 +221,6 @@ C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\mai
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\text-base\text-base.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\text-field\text-field-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\text-field\text-field.js
-C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\text-view\text-view-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\text-view\text-view.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\time-picker\time-picker-common.js
 C:\Users\Win10\Documents\nscript_projects\housekeeping\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\ui\time-picker\time-picker.js

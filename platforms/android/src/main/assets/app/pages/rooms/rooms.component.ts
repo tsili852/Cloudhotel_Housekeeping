@@ -32,6 +32,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
         private page: Page, 
         private roomService: RoomService, 
         private maidListService: MaidListService,
+        private zone: NgZone,
         private changeDetectorRef: ChangeDetectorRef) {
             super(changeDetectorRef);
         }
@@ -39,6 +40,8 @@ export class RoomsComponent extends DrawerPage implements OnInit {
     ngOnInit() {
         this.page.actionBarHidden = false;
         this.roomsList = this.roomService.getAllRooms();
+
+        this.roomsList[2].status = 1;
 
         let maidId = applicationSettings.getString("activeMaidId");
         if (maidId) {
@@ -61,15 +64,32 @@ export class RoomsComponent extends DrawerPage implements OnInit {
         this.selected = args.index;
     }
 
-    public onDirty() {
+    public onLeave() {
         let radListView = <RadListView> frameModule.topmost().currentPage.getViewById("radlistview");
-        alert(this.roomsList[this.selected].name + ": Dirty");
+        this.zone.run(() => {
+            this.roomsList[this.selected].status = 0;
+        });
+        
         radListView.notifySwipeToExecuteFinished();
     }
 
-    public onClean() {
+    public onEnter() {
         let radListView = <RadListView> frameModule.topmost().currentPage.getViewById("radlistview");
-        alert(this.roomsList[this.selected].name + ": Clean");
+        this.zone.run(() => {
+            this.roomsList[this.selected].status = 1;
+        });
         radListView.notifySwipeToExecuteFinished();
+    }
+
+    bathroomCleaned(roomNumber: string) {
+        alert("Bathroom in room : " + roomNumber);
+    }
+
+    bedCleaned(roomNumber: string) {
+        alert("Bed in room : " + roomNumber);
+    }
+
+    towelsCleaned(roomNumber: string) {
+        alert("Towels in room : " + roomNumber);
     }
 }

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3F4\\debug\\xml\\chart_palettes_light_selected.xml",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\exploded-aar\\Chart-2017.1.1003-dev-release\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3F4\\debug\\xml\\chart_palettes_dark_selected.xml",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\exploded-aar\\Chart-2017.1.1003-dev-release\\res\\xml\\chart_palettes_dark_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3F4\\debug\\xml\\chart_palettes_default_light.xml",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\exploded-aar\\Chart-2017.1.1003-dev-release\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1F2F3F4\\debug\\xml\\chart_palettes_default_dark.xml",
+        "source": "C:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\exploded-aar\\Chart-2017.1.1003-dev-release\\res\\xml\\chart_palettes_default_dark.xml"
+    }
+]

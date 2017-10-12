@@ -9,12 +9,15 @@
     <StackLayout tkMainContent>
         <GridLayout id="list-container" rows="auto, *">
             <Label row="0" class="h2 m-t-10 m-b-5" text="Who are you ?" horizontalAlignment="center"></Label>
-            <RadListView row="1" [items]="maidsList" selectionBehavior="Press">
+            <RadListView row="1" [items]="maidsList" (itemTap)="onMaidTap($event)" selectionBehavior="Press">
                 <ng-template let-item="item">
                     <StackLayout orientation="vertical">
-                        <StackLayout orientation="horizontal" id="maid-container" (tap)="activeMaid(item.id)">
+                        <!-- <StackLayout orientation="horizontal" id="maid-container" (tap)="activeMaid(item.id)"> -->
+                        <StackLayout orientation="horizontal" id="maid-container">
                             <Image width="50" height="50" src="res://maid"></Image>
-                            <Label class="maid-name" [text]="item.name"></Label>
+                            <!-- <Ripple rippleColor="#d50000"> -->
+                                <Label class="maid-name" [text]="item.name"></Label>
+                            <!-- </Ripple> -->
                         </StackLayout>
                         <StackLayout height="2" backgroundColor="#bf360c"></StackLayout>
                     </StackLayout>

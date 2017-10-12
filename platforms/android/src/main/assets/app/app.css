@@ -1,8 +1,16 @@
 @import url("~/platform.css");
 @import '~/nativescript-theme-core/css/core.light.css';
 
+.poppins {
+    font-family: "Poppins-Regular"
+}
+
+.raleway {
+    font-family: "Raleway-Regular"
+}
+
 Page {
-    background-image: url("res://background");
+    background-image: url("res://background_blur");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

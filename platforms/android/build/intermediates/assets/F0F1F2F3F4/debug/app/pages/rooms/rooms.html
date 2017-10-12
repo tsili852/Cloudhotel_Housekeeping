@@ -1,0 +1,39 @@
+<ActionBar class="custom-action-bar" title="Rooms">
+    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
+    <ActionItem (tap)="changeMaid()" icon="res://maid" ios.position="right" android.position="actionBar"></ActionItem>
+</ActionBar>
+
+<RadSideDrawer drawerTransition="PushTransition" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <drawer-content></drawer-content>
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <GridLayout id="list-container" rows="auto, *">
+            <Label row="0" id="maid-name" [text]="maid.name" horizontalAlignment="center"></Label>
+            <RadListView id="radlistview" row="1" [items]="roomsList" selectionBehavior="Press" swipeActions="true" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+                <ng-template tkListItemTemplate let-item="item">
+                    <StackLayout orientation="vertical" class="listItemStackLayout">
+                        <StackLayout 
+                            [class.entered]="item.status == 1" 
+                            [class.closed]="item.status == 0" 
+                            [class.clean]="item.status == 2" 
+                            [class.dirty]="item.status == 3"
+                            orientation="horizontal" id="room-container">
+                            <Label class="room-name" [text]="item.name"></Label>
+                            <Image width="30" height="30" src="res://bed" aspect="fit"></Image>
+                        </StackLayout>
+                        <StackLayout height="2" backgroundColor="#bf360c"></StackLayout>
+                    </StackLayout>
+                </ng-template>
+                <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" class="listItemSwipeGridLayout">
+                    <StackLayout class="archiveViewStackLayout" col="0" (tap)="onEnter()">
+                        <Label text="Enter" verticalAlignment="center" horizontalAlignment="center"></Label>
+                    </StackLayout>
+                    <StackLayout class="deleteViewStackLayout" col="2" (tap)="onLeave()">
+                        <Label text="Leave" verticalAlignment="center" horizontalAlignment="center"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </RadListView>
+        </GridLayout>
+    </StackLayout>
+</RadSideDrawer>

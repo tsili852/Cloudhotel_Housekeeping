@@ -6,11 +6,14 @@ export class Room {
     constructor(id: string, name: string) {
         this.id = id;
         this.name = name;
-        this.status = Status.dirty;
+        this.status = Status.closed;
     }
+    
 }
 
 enum Status {
-    clean = "Clean",
-    dirty = "Dirty"
+    closed = 0,
+    entered = 1,
+    clean = 2,
+    dirty = 3    
 }
