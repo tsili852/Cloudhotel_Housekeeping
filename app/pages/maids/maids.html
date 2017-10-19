@@ -15,11 +15,12 @@
                         <!-- <StackLayout orientation="horizontal" id="maid-container" (tap)="activeMaid(item.id)"> -->
                         <StackLayout orientation="horizontal" id="maid-container">
                             <Image width="50" height="50" src="res://maid"></Image>
-                            <!-- <Ripple rippleColor="#d50000"> -->
-                                <Label class="maid-name" [text]="item.name"></Label>
-                            <!-- </Ripple> -->
+                            <Ripple rippleColor="#d0d6e2">
+                                <!-- <Label class="maid-name" [text]="item.name"></Label> -->
+                                <Button class="maid-name btn" [text]="item.name" (tap)="onMaidTapInside(item.id)"></Button>
+                            </Ripple>
                         </StackLayout>
-                        <StackLayout height="2" backgroundColor="#bf360c"></StackLayout>
+                        <StackLayout height="2" backgroundColor="#d0d6e2"></StackLayout>
                     </StackLayout>
                 </ng-template>
             </RadListView>

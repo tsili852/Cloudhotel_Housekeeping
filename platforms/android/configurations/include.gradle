@@ -1,4 +1,0 @@
-
-android {
-    flavorDimensions "nativescriptbluetooth", "nativescriptproui", "nativescriptripple", "nativescriptsidedrawer", "tnscoremoduleswidgets"
-}

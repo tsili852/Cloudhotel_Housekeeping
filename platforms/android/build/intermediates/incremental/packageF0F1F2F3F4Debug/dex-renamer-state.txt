@@ -1,4 +1,0 @@
-#Thu Oct 12 16:57:39 CEST 2017
-base.0=C\:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\transforms\\dex\\F0F1F2F3F4\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\Users\\Win10\\Documents\\nscript_projects\\housekeeping\\platforms\\android\\build\\intermediates\\transforms\\dex\\F0F1F2F3F4\\debug\\folders\\1000\\1f\\main\\classes.dex

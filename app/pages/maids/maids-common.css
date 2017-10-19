@@ -16,9 +16,22 @@ ListView {
     padding-top: 10;
 }
 
-.maid-name {
+/* .maid-name {
     font-size: 40;
     padding-left: 10;
     color: #353333;
     font-family: "Poppins-Regular"
+} */
+
+.maid-name {
+    font-size: 30;
+    padding-left: 10;
+    color: #353333;
+    font-family: "Poppins-Regular";
+    padding-top:-5;
+    padding-bottom:-5;
+    border-color: transparent;
+    border-width: 1;
+    text-transform: none;
+    width: 100%;
 }

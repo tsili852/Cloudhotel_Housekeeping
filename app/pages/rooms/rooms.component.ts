@@ -28,14 +28,14 @@ export class RoomsComponent extends DrawerPage implements OnInit {
     maid: Maid;
     isClean: boolean = false;
 
-    constructor(private routerExtensions: RouterExtensions, 
-        private page: Page, 
-        private roomService: RoomService, 
+    constructor(private routerExtensions: RouterExtensions,
+        private page: Page,
+        private roomService: RoomService,
         private maidListService: MaidListService,
         private zone: NgZone,
         private changeDetectorRef: ChangeDetectorRef) {
-            super(changeDetectorRef);
-        }
+        super(changeDetectorRef);
+    }
 
     ngOnInit() {
         this.page.actionBarHidden = false;
@@ -65,31 +65,68 @@ export class RoomsComponent extends DrawerPage implements OnInit {
     }
 
     public onLeave() {
-        let radListView = <RadListView> frameModule.topmost().currentPage.getViewById("radlistview");
+        let radListView = <RadListView>frameModule.topmost().currentPage.getViewById("radlistview");
         this.zone.run(() => {
             this.roomsList[this.selected].status = 0;
         });
-        
+
         radListView.notifySwipeToExecuteFinished();
     }
 
     public onEnter() {
-        let radListView = <RadListView> frameModule.topmost().currentPage.getViewById("radlistview");
+        let radListView = <RadListView>frameModule.topmost().currentPage.getViewById("radlistview");
         this.zone.run(() => {
             this.roomsList[this.selected].status = 1;
         });
         radListView.notifySwipeToExecuteFinished();
     }
 
-    bathroomCleaned(roomNumber: string) {
-        alert("Bathroom in room : " + roomNumber);
+    // bathroomCleaned(roomNumber: string) {
+    //     alert("Bathroom in room : " + roomNumber);
+    // }
+
+    bathroomStatusChange(id: string) {
+        this.roomsList.forEach((room: Room) => {
+            if (room.id === id) {
+                this.zone.run(() => {
+                    if (room.bathroom_status == 2) {
+                        room.bathroom_status = 3;
+                    }
+                    else {
+                        room.bathroom_status = 2;
+                    }
+                });
+            }
+        });
     }
 
-    bedCleaned(roomNumber: string) {
-        alert("Bed in room : " + roomNumber);
+    bedStatusChange(id: string) {
+        this.roomsList.forEach((room: Room) => {
+            if (room.id === id) {
+                this.zone.run(() => {
+                    if (room.bed_status == 2) {
+                        room.bed_status = 3;
+                    }
+                    else {
+                        room.bed_status = 2;
+                    }
+                });
+            }
+        });
     }
 
-    towelsCleaned(roomNumber: string) {
-        alert("Towels in room : " + roomNumber);
+    towelsStatusChange(id: string) {
+        this.roomsList.forEach((room: Room) => {
+            if (room.id === id) {
+                this.zone.run(() => {
+                    if (room.towels_status == 2) {
+                        room.towels_status = 3;
+                    }
+                    else {
+                        room.towels_status = 2;
+                    }
+                });
+            }
+        });
     }
 }

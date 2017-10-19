@@ -37,4 +37,9 @@ export class MaidsComponent extends DrawerPage implements OnInit {
         applicationSettings.setString("activeMaidId", maid.id);
         this.routerExtensions.navigate(["/rooms"], { clearHistory: true });
     }
+
+    onMaidTapInside(id: string) {
+        applicationSettings.setString("activeMaidId", id);
+        this.routerExtensions.navigate(["/rooms"], { clearHistory: true });
+    }
 }

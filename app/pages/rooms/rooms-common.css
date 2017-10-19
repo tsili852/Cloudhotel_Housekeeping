@@ -67,6 +67,30 @@ ListView {
     margin-right: 20;
 }
 
+.bed-clean {
+    background-image:url('res://bed_clean');
+}
+
+.bed-dirty {
+    background-image:url('res://bed_dirty');
+}
+
+.towels-clean {
+    background-image:url('res://towels_clean');
+}
+
+.towels-dirty {
+    background-image:url('res://towels_dirty');
+}
+
+.bathroom-clean {
+    background-image:url('res://bathroom_clean');
+}
+
+.bathroom-dirty {
+    background-image:url('res://bathroom_dirty');
+}
+
 .clean {
     background-color: rgb(202, 241, 202);
 }
@@ -80,5 +104,5 @@ ListView {
 }
 
 .entered {
-    background-color: rgb(210, 210, 255);
+    background-color: #ffe97d;
 }
