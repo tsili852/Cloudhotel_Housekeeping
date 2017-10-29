@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Maid = (function () {
+var Maid = /** @class */ (function () {
     function Maid(id, name) {
         this.id = id;
         this.name = name;

@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var room_1 = require("./room");
+exports.RoomActions = room_1.RoomActions;
+exports.default = [
+    room_1.RoomActions
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLCtCQUFxQztBQUdqQyxzQkFISyxrQkFBVyxDQUdMO0FBR2Ysa0JBQWU7SUFDWCxrQkFBVztDQUNkLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSb29tQWN0aW9ucyB9IGZyb20gJy4vcm9vbSc7XHJcblxyXG5leHBvcnQge1xyXG4gICAgUm9vbUFjdGlvbnNcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFtcclxuICAgIFJvb21BY3Rpb25zXHJcbl07Il19

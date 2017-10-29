@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Technitian = (function () {
+var Technitian = /** @class */ (function () {
     function Technitian(id, name) {
         this.id = id;
         this.name = name;

@@ -9,12 +9,12 @@
         <StackLayout tkMainContent>
             <GridLayout id="list-container" rows="auto, *">
                 <Label row="0" class="h2 m-t-10 m-b-5" text="Who are you ?" horizontalAlignment="center"></Label>
-                <RadListView row="1" [items]="technitiansList" selectionBehavior="Press">
+                <RadListView row="1" [items]="technitiansList" (itemTap)="onTechnitianTap($event)" selectionBehavior="Press">
                     <ng-template let-item="item">
                         <StackLayout orientation="vertical">
                             <StackLayout orientation="horizontal" id="technitian-container">
                                 <Image width="50" height="50" src="res://contractor"></Image>
-                                <Label class="technitian-name" [text]="item.name"></Label>
+                                <Button class="technitian-name btn" [text]="item.name" (tap)="onTechnitianTapInside(item.id)"></Button>
                             </StackLayout>
                             <StackLayout height="2" backgroundColor="#bf360c"></StackLayout>
                         </StackLayout>

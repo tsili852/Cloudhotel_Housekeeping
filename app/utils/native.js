@@ -4,7 +4,7 @@ var application = require("application");
 var platform = require("platform");
 var color_1 = require("color");
 var android = application.android;
-var StatusBar = (function () {
+var StatusBar = /** @class */ (function () {
     function StatusBar() {
     }
     StatusBar.setColor = function (hexcode) {

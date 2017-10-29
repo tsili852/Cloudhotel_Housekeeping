@@ -14,6 +14,7 @@ import { DrawerPage } from "../drawer.page";
 import { ListViewEventData, RadListView } from 'nativescript-pro-ui/listview';
 import { layout } from "tns-core-modules/utils/utils";
 import * as frameModule from "tns-core-modules/ui/frame";
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: "rooms",
@@ -22,6 +23,7 @@ import * as frameModule from "tns-core-modules/ui/frame";
     providers: [RoomService, MaidListService]
 })
 export class RoomsComponent extends DrawerPage implements OnInit {
+    rooms: Observable<any>;
     selected: number;
     roomsList: Array<Room> = [];
     rooom = "";
@@ -39,7 +41,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
 
     ngOnInit() {
         this.page.actionBarHidden = false;
-        this.roomsList = this.roomService.getAllRooms();
+        this.rooms = this.roomService.getAllRooms();
 
         this.roomsList[2].status = 1;
 
@@ -87,7 +89,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
 
     bathroomStatusChange(id: string) {
         this.roomsList.forEach((room: Room) => {
-            if (room.id === id) {
+            if (room.Number === id) {
                 this.zone.run(() => {
                     if (room.bathroom_status == 2) {
                         room.bathroom_status = 3;
@@ -102,7 +104,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
 
     bedStatusChange(id: string) {
         this.roomsList.forEach((room: Room) => {
-            if (room.id === id) {
+            if (room.Number === id) {
                 this.zone.run(() => {
                     if (room.bed_status == 2) {
                         room.bed_status = 3;
@@ -117,7 +119,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
 
     towelsStatusChange(id: string) {
         this.roomsList.forEach((room: Room) => {
-            if (room.id === id) {
+            if (room.Number === id) {
                 this.zone.run(() => {
                     if (room.towels_status == 2) {
                         room.towels_status = 3;

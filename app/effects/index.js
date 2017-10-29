@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var room_1 = require("./room");
+exports.RoomEffects = room_1.RoomEffects;
+exports.default = [
+    room_1.RoomEffects
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLCtCQUFxQztBQUdqQyxzQkFISyxrQkFBVyxDQUdMO0FBR2Ysa0JBQWU7SUFDWCxrQkFBVztDQUNkLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSb29tRWZmZWN0cyB9IGZyb20gJy4vcm9vbSc7XHJcblxyXG5leHBvcnQge1xyXG4gICAgUm9vbUVmZmVjdHNcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFtcclxuICAgIFJvb21FZmZlY3RzXHJcbl07Il19
