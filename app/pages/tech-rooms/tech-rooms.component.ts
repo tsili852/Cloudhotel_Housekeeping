@@ -23,7 +23,8 @@ import * as fromRoot from "../../reducers/index"
 @Component({
     selector: "tech-rooms",
     templateUrl: "pages/tech-rooms/tech-rooms.html",
-    styleUrls: ["pages/tech-rooms/tech-rooms-common.css", "pages/tech-rooms/tech-rooms.css"]
+    styleUrls: ["pages/tech-rooms/tech-rooms-common.css", "pages/tech-rooms/tech-rooms.css"],
+    providers: [TechnitianListService]
 })
 export class TechRoomsComponent extends DrawerPage implements OnInit {
     rooms: Observable<any>;
@@ -55,7 +56,7 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
 
     ngOnInit() {
         this.page.actionBarHidden = false;
-        this.rooms = this.roomService.getAllRooms();
+        // this.rooms = this.roomService.getAllRooms();
 
         let techId = applicationSettings.getString("activeTechnitianId");
         if (techId) {

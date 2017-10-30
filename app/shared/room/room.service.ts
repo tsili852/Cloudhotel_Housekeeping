@@ -17,7 +17,8 @@ export class RoomService {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
-        return this.http.get(Config.apiUrl + 'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN, { headers: headers })
+        return this.http.get(Config.apiUrl + 
+            'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN, { headers: headers })
         .map(response => response.json())        
         .catch(this.handleErrors);
     }

@@ -22,7 +22,6 @@ ListView {
     font-size: 30;
     margin-left: 10;
     color: #353333;
-    font-family: "Poppins-Regular";
     width: 100;
 }
 /* 
@@ -66,43 +65,11 @@ ListView {
 .icons-container {
     margin-right: 20;
 }
-
-.bed-clean {
-    background-image:url('res://bed_clean');
-}
-
-.bed-dirty {
-    background-image:url('res://bed_dirty');
-}
-
-.towels-clean {
-    background-image:url('res://towels_clean');
-}
-
-.towels-dirty {
-    background-image:url('res://towels_dirty');
-}
-
-.bathroom-clean {
-    background-image:url('res://bathroom_clean');
-}
-
+/* 
 .bathroom-dirty {
     background-image:url('res://bathroom_dirty');
-}
+} */
 
-.clean {
-    background-color: rgb(202, 241, 202);
-}
-
-.dirty {
-    background-color: rgb(247, 221, 221);
-}
-
-.closed {
-    background-color: rgb(255, 255, 255);
-}
-
-.entered {
-    background-color: #ffe97d;
+#repairs-count {
+    font-size: 24;
 }
