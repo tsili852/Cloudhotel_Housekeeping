@@ -18,7 +18,7 @@ export class RoomService {
         headers.append("Content-Type", "application/json");
 
         return this.http.get(Config.apiUrl + 
-            'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN, { headers: headers })
+            'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN + '&daysBefore=30', { headers: headers })
         .map(response => response.json())        
         .catch(this.handleErrors);
     }

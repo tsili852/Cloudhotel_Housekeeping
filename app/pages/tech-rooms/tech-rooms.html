@@ -1,6 +1,6 @@
-<ActionBar class="custom-action-bar" title="Rooms">
+<ActionBar class="custom-action-bar" title="Repairs">
     <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
-    <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem>
+    <!-- <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem> -->
 </ActionBar>
 
 <RadSideDrawer drawerTransition="PushTransition" tkExampleTitle tkToggleNavButton>
@@ -9,19 +9,27 @@
     </StackLayout>
     <StackLayout tkMainContent>
         <GridLayout id="list-container" rows="auto, *">
+            <StackLayout class="btns-container" row="0" orientation="horizontal" width="100%" horizontalAlignment="center">
+                <Button id="repairs-button" [class.selected]="this.selectedNavButton == 1" class="top-navigation-btn btn btn-active" text="With Repairs"
+                    width="150" (tap)="onRepairsSelected()"></Button>
+                <Button id="all-button" [class.selected]="this.selectedNavButton == 2" class="top-navigation-btn btn btn-active" text="All"
+                    width="150" (tap)="onAllSelected()"></Button>
+            </StackLayout>
             <!-- <Label row="0" id="tech-name" [text]="technitian.name" horizontalAlignment="center"></Label> -->
-            <RadListView id="radlistview" row="1" [items]="rooms | async" selectionBehavior="Press" swipeActions="true" (itemSelected)="onItemSelected($event)" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+            <RadListView name="roomsList" id="radlistview" row="1" [items]="rooms | async" selectionBehavior="Press" swipeActions="true"
+                (itemSelected)="onItemSelected($event)" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
                 <ng-template tkListItemTemplate let-room="item">
                     <StackLayout orientation="vertical" class="listItemStackLayout">
-                        <GridLayout columns="*, auto">
+                        <GridLayout columns="auto, *">
                             <StackLayout col="0" orientation="horizontal" id="room-container">
                                 <Label class="room-name" [text]="room.Number"></Label>
+                                <Label id="repairs-count" [visibility]="room.Repairs.length > 0 ? 'visible' : 'collapsed'" verticalAlignment="bottom" [text]="'(' + room.Repairs.length + ')'"></Label>
                             </StackLayout>
-                            <StackLayout col="1" orientation="horizontal" horizontalAlignment="right" class="icons-container">
-                                <Label id="repairs-count" verticalAlignment="center" [text]="'(' + room.Repairs.length + ')'"></Label>
-                                <Button id="btn-announce" width="50" height="50" (tap)="onAnnounce(room.id)"></Button>
+                            <StackLayout col="1" orientation="horizontal">
+                                <Label id="repairs-description" verticalAlignment="center" [text]="' [' + repair.Description + '] '" *ngFor="let repair of room.Repairs"></Label>
+                                <!-- <Button id="btn-announce" width="50" height="50" (tap)="onAnnounce(room.id)"></Button>
                                 <Button id="btn-repair-start" width="50" height="50" (tap)="onRepairStart(item.number)"></Button>
-                                <Button id="btn-all-fixed" width="50" height="50" (tap)="onFixAll(item.number)"></Button>
+                                <Button id="btn-all-fixed" width="50" height="50" (tap)="onFixAll(item.number)"></Button> -->
                             </StackLayout>
                         </GridLayout>
                         <StackLayout height="1" backgroundColor="#9499a3"></StackLayout>
@@ -36,6 +44,8 @@
                     </StackLayout>
                 </GridLayout>
             </RadListView>
+            <FAB row="1" (tap)="fabTap()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="roomsList"
+                swipeAnimation="slideDown"></FAB>
         </GridLayout>
     </StackLayout>
 </RadSideDrawer>

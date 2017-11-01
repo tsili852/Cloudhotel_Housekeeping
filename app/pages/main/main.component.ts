@@ -28,6 +28,6 @@ export class MainComponent extends DrawerPage implements OnInit {
     }
 
     technitiansSelected() {
-        this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
+        this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
 }

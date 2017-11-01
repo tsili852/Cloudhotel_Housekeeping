@@ -18,6 +18,8 @@ import { Observable } from 'rxjs/Observable';
 import { AppState } from "../../reducers/index";
 import { Store } from "@ngrx/store";
 import { RoomActions } from "../../actions/index";
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 import * as fromRoot from "../../reducers/index"
 
 @Component({
@@ -31,6 +33,7 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
     isLoading: Observable<boolean>;
     skipRooms: number = 0;
     takeRooms: number = 20;
+    selectedNavButton = 1;
     
     selected: number;
     roomsList: Array<Room> = [];
@@ -58,18 +61,28 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         this.page.actionBarHidden = false;
         // this.rooms = this.roomService.getAllRooms();
 
-        let techId = applicationSettings.getString("activeTechnitianId");
-        if (techId) {
-            this.technitian = this.technitianListService.getFromId(techId);
-        } else {
-            this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
-        }
+        // let techId = applicationSettings.getString("activeTechnitianId");
+        // if (techId) {
+        //     this.technitian = this.technitianListService.getFromId(techId);
+        // } else {
+        //     this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
+        // }
     }
 
     changeTechnitian() {
         applicationSettings.setString("activeTechnitian", "");
         this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
     }
+
+    onRepairsSelected() {
+        this.selectedNavButton = 1;
+    }
+
+    onAllSelected() {
+        this.selectedNavButton = 2;
+    }
+
+
 
     // public onSwipeCellStarted(args: ListViewEventData) {
     //     var swipeLimits = args.data.swipeLimits;

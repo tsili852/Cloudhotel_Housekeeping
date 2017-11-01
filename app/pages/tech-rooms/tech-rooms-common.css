@@ -1,5 +1,5 @@
 ListView {
-    margin-top:20;
+    margin-top: 20;
 }
 
 #list-container {
@@ -7,7 +7,7 @@ ListView {
 }
 
 #maid-name {
-    margin-top:10;
+    margin-top: 10;
     margin-bottom: 5;
     font-size: 30;
     text-decoration: underline;
@@ -24,6 +24,8 @@ ListView {
     color: #353333;
     width: 100;
 }
+
+
 /* 
 .sideStackLayout {
     background-color: #555555;
@@ -65,11 +67,40 @@ ListView {
 .icons-container {
     margin-right: 20;
 }
-/* 
-.bathroom-dirty {
-    background-image:url('res://bathroom_dirty');
-} */
+
+.btns-container {
+    background-color: #639FFA;
+}
+
+.top-navigation-btn {
+    background-color: #DEDEDE;
+    color: black;
+    text-transform: capitalize;
+}
+
+.top-navigation-btn.selected {
+    background-color: #FF5536;
+    color: white;
+}
+
 
 #repairs-count {
-    font-size: 24;
+    font-size: 18;
+}
+
+#repairs-description {
+    font-size: 16;
+}
+
+.top-navigation-btn {
+    text-align: center;
+}
+
+.fab-button {
+    height: 50;
+    width: 7500;
+    margin: 15;
+    background-color: #D01A1A;
+    horizontal-align: right;
+    vertical-align: bottom;
 }

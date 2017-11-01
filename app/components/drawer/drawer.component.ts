@@ -16,10 +16,10 @@ export class DrawerComponent {
     }
 
     goToMaids() {
-        this.routerExtensions.navigate(["/maids"], { clearHistory: true });
+        this.routerExtensions.navigate(["/rooms"], { clearHistory: true });
     }
 
     goToTechnitians() {
-        this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
+        this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
 }

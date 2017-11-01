@@ -30,6 +30,7 @@
     "lodash": "^4.17.4",
     "nativescript-angular": "~4.4.1",
     "nativescript-bluetooth": "^1.2.0",
+    "nativescript-floatingactionbutton": "^4.1.1",
     "nativescript-pro-ui": "^3.1.4",
     "nativescript-ripple": "^2.0.0",
     "nativescript-sidedrawer": "^1.0.6",
