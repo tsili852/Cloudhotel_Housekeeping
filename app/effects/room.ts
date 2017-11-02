@@ -18,7 +18,7 @@ export class RoomEffects {
         .ofType(RoomActions.LOAD_ROOMS)
         .map(options => options.payload)
         .switchMap(options => {
-            return this.svc.getAllRooms();
+            return this.svc.getAllRooms(options.daysBefore);
         })
         .map(rooms => this.roomActions.loadRoomsSuccess(rooms));
 }

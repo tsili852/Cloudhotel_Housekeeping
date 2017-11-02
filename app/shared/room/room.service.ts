@@ -13,12 +13,12 @@ import { Config } from '../config';
 export class RoomService {
     constructor(private http: Http) {}
 
-    getAllRooms(): Observable<Room[]> {
+    getAllRooms(daysBefore: number): Observable<Room[]> {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         return this.http.get(Config.apiUrl + 
-            'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN + '&daysBefore=30', { headers: headers })
+            'GetRoomsAndTasksAsync?HotelSN=' + Config.hotelSN + '&daysBefore=' + daysBefore, { headers: headers })
         .map(response => response.json())        
         .catch(this.handleErrors);
     }

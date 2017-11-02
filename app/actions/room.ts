@@ -6,10 +6,10 @@ import { Room } from "../shared/room/room";
 @Injectable()
 export class RoomActions {
     static LOAD_ROOMS = '[Room] Load Rooms';
-    loadRooms(skip, take): Action {
+    loadRooms(skip, take, daysBefore): Action {
         return {
             type: RoomActions.LOAD_ROOMS,
-            payload: {skip, take}
+            payload: {skip, take, daysBefore}
         };
     }
 

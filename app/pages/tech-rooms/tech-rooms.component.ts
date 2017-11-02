@@ -34,6 +34,7 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
     skipRooms: number = 0;
     takeRooms: number = 20;
     selectedNavButton = 1;
+    daysBefore = 0;
     
     selected: number;
     roomsList: Array<Room> = [];
@@ -51,7 +52,7 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         private changeDetectorRef: ChangeDetectorRef) {
         super(changeDetectorRef);
         
-        this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms));
+        this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
 
         this.rooms = store.select(fromRoot.getRooms);
         this.isLoading = store.select(fromRoot.getRoomsLoading);
@@ -76,10 +77,14 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
 
     onRepairsSelected() {
         this.selectedNavButton = 1;
+        this.daysBefore = 0;
+        this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
     }
 
     onAllSelected() {
         this.selectedNavButton = 2;
+        this.daysBefore = 30;
+        this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
     }
 
 

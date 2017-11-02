@@ -41,7 +41,7 @@ export class RoomsComponent extends DrawerPage implements OnInit {
 
     ngOnInit() {
         this.page.actionBarHidden = false;
-        this.rooms = this.roomService.getAllRooms();
+        this.rooms = this.roomService.getAllRooms(30);
 
         this.roomsList[2].status = 1;
 
