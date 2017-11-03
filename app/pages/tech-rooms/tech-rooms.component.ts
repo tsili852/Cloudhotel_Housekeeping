@@ -1,6 +1,5 @@
 import { Component, OnInit, NgZone, ElementRef, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { Page } from "ui/page";
-import { Color } from "color";
 import { RouterExtensions } from "nativescript-angular/router";
 import { TnsSideDrawer } from "nativescript-sidedrawer";
 import * as applicationSettings from "tns-core-modules/application-settings";
@@ -87,7 +86,9 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
     }
 
-
+    onItemSelected(args) {
+        this.routerExtensions.navigate(["/room-repairs"]);
+    }
 
     // public onSwipeCellStarted(args: ListViewEventData) {
     //     var swipeLimits = args.data.swipeLimits;

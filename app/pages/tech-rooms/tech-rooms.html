@@ -22,11 +22,15 @@
                     <StackLayout orientation="vertical" class="listItemStackLayout">
                         <GridLayout columns="auto, *">
                             <StackLayout col="0" orientation="horizontal" id="room-container">
-                                <Label class="room-name" [text]="room.Number"></Label>
-                                <Label id="repairs-count" [visibility]="room.Repairs.length > 0 ? 'visible' : 'collapsed'" verticalAlignment="bottom" [text]="'(' + room.Repairs.length + ')'"></Label>
+                                <Label class="room-name" [text]="room.Number"></Label>                                
                             </StackLayout>
                             <StackLayout col="1" orientation="horizontal">
                                 <Label id="repairs-description" verticalAlignment="center" [text]="' [' + repair.Description + '] '" *ngFor="let repair of room.Repairs"></Label>
+                                <Label id="repairs-count" 
+                                    [visibility]="room.Repairs.length > 0 ? 'visible' : 'collapsed'" 
+                                    verticalAlignment="bottom" 
+                                    horizontalAlignment="right"
+                                    [text]="'(' + room.Repairs.length + ')'"></Label>
                                 <!-- <Button id="btn-announce" width="50" height="50" (tap)="onAnnounce(room.id)"></Button>
                                 <Button id="btn-repair-start" width="50" height="50" (tap)="onRepairStart(item.number)"></Button>
                                 <Button id="btn-all-fixed" width="50" height="50" (tap)="onFixAll(item.number)"></Button> -->

@@ -1,0 +1,43 @@
+<ActionBar class="custom-action-bar" [title]="'Repairs for room ' + roomNumber">
+    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
+    <!-- <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem> -->
+</ActionBar>
+
+<RadSideDrawer drawerTransition="PushTransition" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <drawer-content></drawer-content>
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <GridLayout id="list-container" rows="auto, *">
+            <StackLayout class="btns-container" row="0" orientation="horizontal" width="100%" horizontalAlignment="center">
+                <Button id="repairs-button" [class.selected]="this.selectedNavButton == 1" class="top-navigation-btn btn btn-active" text="Pending"
+                    width="150" (tap)="onPendingSelected()"></Button>
+                <Button id="all-button" [class.selected]="this.selectedNavButton == 2" class="top-navigation-btn btn btn-active" text="All"
+                    width="150" (tap)="onAllSelected()"></Button>
+            </StackLayout>
+            <!-- <Label row="0" id="tech-name" [text]="technitian.name" horizontalAlignment="center"></Label> -->
+            <ListView name="repairsList" row="1" [items]="repairs" selectionBehavior="Press" swipeActions="true"
+                (itemSelected)="onItemSelected($event)">
+                <ng-template let-repair="item" nsTemplateKey="contents">
+                    <StackLayout>
+                        <StackLayout class="row-container" orientation="vertical" [class.started]="repair.StartAt && !repair.EndAt" [class.ended]="repair.EndAt">
+                            <Label [text]="repair.Description"></Label>
+                            <!-- <GridLayout columns="100, 50, *, *">"
+                                <StackLayout col="0">
+                                    <Label class="list-item-label" [text]="entry.entryDate | date:'dd.MM.yy'"></Label>
+                                </StackLayout>
+                                <StackLayout col="1" verticalAlignment="center">
+                                    <Image [visibility]="entry.entryitems.length > 1 ? 'visible' : 'collapsed'" width="20" height="20" src="res://multiple"></Image>
+                                </StackLayout>
+                                <Label col="2" class="list-item-label" [text]="entry.address.name"></Label>
+                                <Label col="3" class="list-item-label amount" [text]="entry.totalAmount | number:'0.2-2'"></Label>
+                            </GridLayout> -->
+                        </StackLayout>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+            <FAB row="1" (tap)="fabTap()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="roomsList"
+                swipeAnimation="slideDown"></FAB>
+        </GridLayout>
+    </StackLayout>
+</RadSideDrawer>

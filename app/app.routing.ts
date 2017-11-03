@@ -3,6 +3,7 @@ import { MaidsComponent } from "./pages/maids/maids.component";
 import { TechnitiansComponent } from './pages/technitians/technitians.component';
 import { RoomsComponent } from "./pages/rooms/rooms.component";
 import { TechRoomsComponent } from './pages/tech-rooms/tech-rooms.component';
+import { RoomRepairsComponent } from "./pages/room-repairs/room-repairs.component";
 
 export const routes = [
   { path: "", redirectTo:"/main", pathMatch: "full"},
@@ -10,7 +11,8 @@ export const routes = [
   { path: "maids", component: MaidsComponent },
   { path: "technitians", component: TechnitiansComponent },
   { path: "rooms", component: RoomsComponent },
-  { path: "tech-rooms", component: TechRoomsComponent }
+  { path: "tech-rooms", component: TechRoomsComponent },
+  { path: "room-repairs", component: RoomRepairsComponent },
 ];
 
 export const navigatableComponents = [
@@ -18,5 +20,6 @@ export const navigatableComponents = [
     MaidsComponent,
     TechnitiansComponent,
     RoomsComponent,
-    TechRoomsComponent
+    TechRoomsComponent,
+    RoomRepairsComponent
 ];
