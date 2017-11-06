@@ -12,7 +12,7 @@
             <StackLayout class="btns-container" row="0" orientation="horizontal" width="100%" horizontalAlignment="center">
                 <Button id="repairs-button" [class.selected]="this.selectedNavButton == 1" class="top-navigation-btn btn btn-active" text="Pending"
                     width="150" (tap)="onPendingSelected()"></Button>
-                <Button id="all-button" [class.selected]="this.selectedNavButton == 2" class="top-navigation-btn btn btn-active" text="All"
+                <Button id="all-button" [class.selected]="this.selectedNavButton == 2" class="top-navigation-btn btn btn-active" text="All Rooms"
                     width="150" (tap)="onAllSelected()"></Button>
             </StackLayout>
             <!-- <Label row="0" id="tech-name" [text]="technitian.name" horizontalAlignment="center"></Label> -->
@@ -25,12 +25,13 @@
                                 <Label class="room-name" [text]="room.Number"></Label>                                
                             </StackLayout>
                             <StackLayout col="1" orientation="horizontal">
-                                <Label id="repairs-description" verticalAlignment="center" [text]="' [' + repair.Description + '] '" *ngFor="let repair of room.Repairs"></Label>
                                 <Label id="repairs-count" 
                                     [visibility]="room.Repairs.length > 0 ? 'visible' : 'collapsed'" 
                                     verticalAlignment="bottom" 
                                     horizontalAlignment="right"
                                     [text]="'(' + room.Repairs.length + ')'"></Label>
+                                <Label id="repairs-description" verticalAlignment="center" [text]="' [' + repair.Description + '] '" *ngFor="let repair of room.Repairs"></Label>
+
                                 <!-- <Button id="btn-announce" width="50" height="50" (tap)="onAnnounce(room.id)"></Button>
                                 <Button id="btn-repair-start" width="50" height="50" (tap)="onRepairStart(item.number)"></Button>
                                 <Button id="btn-all-fixed" width="50" height="50" (tap)="onFixAll(item.number)"></Button> -->
@@ -52,8 +53,8 @@
             <!-- <StackLayout row="1" backgroundColor="red" orientation="vertical" [visibility]="(isLoading | async) ? 'visible' : 'collapsed'"> 
                 <Label verticalAlignement="center" text="Nothing to show" fontSize="30"></Label>
             </StackLayout>             -->
-            <FAB row="1" (tap)="fabTap()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="roomsList"
-                swipeAnimation="slideDown"></FAB>
+            <!-- <FAB row="1" (tap)="fabTap()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="roomsList"
+                swipeAnimation="slideDown"></FAB> -->
         </GridLayout>
     </StackLayout>
 </RadSideDrawer>

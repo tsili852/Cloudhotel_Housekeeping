@@ -39,6 +39,7 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
     room: Room;
     repairs: Observable<any>;
     isLoading: Observable<boolean>;
+    repairsCounter: number = 0;
     daysBefore = 30;
 
     constructor(private routerExtensions: RouterExtensions,
@@ -63,11 +64,17 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
         store.dispatch(repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
 
         this.repairs = store.select(fromRoot.getRepairs);
+        this.repairs.subscribe(repairs => {
+            this.repairsCounter = repairs.lenght;
+        });
         this.isLoading = store.select(fromRoot.getRepairsLoading);
     }
 
     ngOnInit() {
         this.page.actionBarHidden = false;
+        if (this.repairsCounter == 0) {
+            this.onAddAnnouncement();
+        }
     }
 
     onPendingSelected() {
