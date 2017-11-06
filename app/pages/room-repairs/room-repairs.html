@@ -1,4 +1,4 @@
-<ActionBar class="custom-action-bar" [title]="'Repairs for room ' + roomNumber">
+<ActionBar class="custom-action-bar" [title]="'Repairs for room ' + room.Number">
     <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
     <!-- <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem> -->
 </ActionBar>
@@ -16,27 +16,29 @@
                     width="150" (tap)="onAllSelected()"></Button>
             </StackLayout>
             <!-- <Label row="0" id="tech-name" [text]="technitian.name" horizontalAlignment="center"></Label> -->
-            <ListView name="repairsList" row="1" [items]="repairs" selectionBehavior="Press" swipeActions="true"
-                (itemSelected)="onItemSelected($event)">
+            <ListView #repairsList id="repairsList" row="1" [items]="repairs | async" selectionBehavior="Press" swipeActions="true" (itemSelected)="onItemSelected($event)">
                 <ng-template let-repair="item" nsTemplateKey="contents">
-                    <StackLayout>
+                    <!-- <StackLayout>
                         <StackLayout class="row-container" orientation="vertical" [class.started]="repair.StartAt && !repair.EndAt" [class.ended]="repair.EndAt">
                             <Label [text]="repair.Description"></Label>
-                            <!-- <GridLayout columns="100, 50, *, *">"
-                                <StackLayout col="0">
-                                    <Label class="list-item-label" [text]="entry.entryDate | date:'dd.MM.yy'"></Label>
-                                </StackLayout>
-                                <StackLayout col="1" verticalAlignment="center">
-                                    <Image [visibility]="entry.entryitems.length > 1 ? 'visible' : 'collapsed'" width="20" height="20" src="res://multiple"></Image>
-                                </StackLayout>
-                                <Label col="2" class="list-item-label" [text]="entry.address.name"></Label>
-                                <Label col="3" class="list-item-label amount" [text]="entry.totalAmount | number:'0.2-2'"></Label>
-                            </GridLayout> -->
                         </StackLayout>
-                    </StackLayout>
+                    </StackLayout> -->
+                    <CardView class="cardStyle" margin="5" elevation="10" radius="5">
+                        <GridLayout class="p-x-10 p-y-5" rows="auto, *, auto">
+                            <Label row="0" class="card-item" [text]="repair.Description"></Label>
+                            <StackLayout row="1" orientation="vertical" [visibility]="repair.StartAt ? 'visible' : 'collapsed'">
+                                <Label fontSize="18" [text]="'Started: ' + (repair.StartAt | date:'dd.MM.yy h:mm')"></Label>
+                                <Label [visibility]="repair.EndAt ? 'visible' : 'collapsed'" fontSize="18" [text]="'Ended: ' + (repair.EndAt | date:'dd.MM.yy h:mm')" style="margin-left:8"></Label>
+                            </StackLayout>
+                            <StackLayout row="2" orientation="horizontal">
+                                <Button [visibility]="!repair.StartAt ? 'visible' : 'collapsed'" text="Start" backgroundColor="#FF5141" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onStart(repair.RepairID)></Button>
+                                <Button [visibility]="(!repair.EndAt && repair.StartAt) ? 'visible' : 'collapsed'" text="Fixed" backgroundColor="#9ccc65" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onFixed(repair.RepairID)></Button>
+                            </StackLayout>
+                        </GridLayout>
+                    </CardView>
                 </ng-template>
             </ListView>
-            <FAB row="1" (tap)="fabTap()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="roomsList"
+            <FAB row="1" (tap)="onAddAnnouncement()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="repairsList"
                 swipeAnimation="slideDown"></FAB>
         </GridLayout>
     </StackLayout>

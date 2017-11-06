@@ -1,9 +1,15 @@
 import { RoomEffects } from './room';
+import { RepairEffects } from "./repair";
+import { TechnitianEffects } from "./technitian";
 
 export {
-    RoomEffects
+    RoomEffects,
+    RepairEffects,
+    TechnitianEffects
 };
 
 export default [
-    RoomEffects
+    RoomEffects,
+    RepairEffects,
+    TechnitianEffects
 ];

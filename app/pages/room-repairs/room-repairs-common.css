@@ -1,5 +1,5 @@
 ListView {
-    margin-top: 20;
+    padding-top: 10;
 }
 
 .row-container {
@@ -44,7 +44,30 @@ ListView {
     height: 50;
     width: 7500;
     margin: 15;
-    background-color: #D01A1A;
+    background-color: #D00B1E;
     horizontal-align: right;
     vertical-align: bottom;
+}
+
+.cardStyle {
+    background-color: white;
+    color: black;
+}
+
+.card-item {
+    font-size: 24;
+}
+
+.btn-actions {
+    color: white;
+    text-transform: capitalize;    
+}
+
+.btn-actions {
+    background-color: white;
+}
+
+#repairsList {
+    background-color: #DFDFDF;
+    separator-color: transparent;
 }

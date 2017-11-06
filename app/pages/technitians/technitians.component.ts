@@ -29,12 +29,12 @@ export class TechnitiansComponent extends DrawerPage implements OnInit {
 
     ngOnInit() {
         this.page.actionBarHidden = false;
-        this.technitiansList = this.technitianListService.load();
+        // this.technitiansList = this.technitianListService.load();
     }
 
     onTechnitianTap(args) {
         let technitian = this.technitiansList[args.index];
-        applicationSettings.setString("activeTechnitianId", technitian.id);
+        // applicationSettings.setString("activeTechnitianId", technitian.id);
         this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
 

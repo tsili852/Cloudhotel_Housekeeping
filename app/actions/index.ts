@@ -1,9 +1,15 @@
 import { RoomActions } from './room';
+import { RepairActions } from "./repair";
+import { TechnitianActions } from "./technitian";
 
 export {
-    RoomActions
+    RoomActions,
+    RepairActions,
+    TechnitianActions
 };
 
 export default [
-    RoomActions
+    RoomActions,
+    RepairActions,
+    TechnitianActions
 ];

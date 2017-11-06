@@ -1,6 +1,7 @@
-import { Component, OnInit, NgZone, ElementRef, ViewChild, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, NgZone, ElementRef, ViewChild, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import { Page } from "ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
+import {ActivatedRoute} from "@angular/router";
 import * as applicationSettings from "tns-core-modules/application-settings";
 import { Room } from "../../shared/room/room";
 import { RoomService } from '../../shared/room/room.service';
@@ -16,42 +17,53 @@ import * as frameModule from "tns-core-modules/ui/frame";
 import { Observable } from 'rxjs/Observable';
 import { AppState } from "../../reducers/index";
 import { Store } from "@ngrx/store";
-import { RoomActions } from "../../actions/index";
-// import { registerElement } from "nativescript-angular/element-registry";
-// registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+import { RepairActions } from "../../actions/index";
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { AddRepairModalComponent } from "../../components/add-repair-modal/add-repair-modal";
+import { Http, Headers } from "@angular/http";
+import { Config } from "../../shared/config";
+import * as elementRegistryModule from 'nativescript-angular/element-registry';
+elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
 import * as fromRoot from "../../reducers/index"
 
 @Component({
     selector: "room-repairs",
     templateUrl: "pages/room-repairs/room-repairs.html",
+    entryComponents: [AddRepairModalComponent],
     styleUrls: ["pages/room-repairs/room-repairs-common.css", "pages/room-repairs/room-repairs.css"],
     providers: [TechnitianListService]
 })
 
 export class RoomRepairsComponent extends DrawerPage implements OnInit {
-    selectedNavButton: number;
-    roomNumber: number = 12;
-    repairs: Array<Repair> = [];
+    selectedNavButton: number = 2;
+    room: Room;
+    repairs: Observable<any>;
+    isLoading: Observable<boolean>;
+    daysBefore = 30;
 
     constructor(private routerExtensions: RouterExtensions,
+        private route: ActivatedRoute,
         private page: Page,
         private roomService: RoomService,
         private technitianListService: TechnitianListService,
         private zone: NgZone,
         private store: Store<AppState>,
-        private roomActions: RoomActions,
+        private repairActions: RepairActions,
+        private modalService: ModalDialogService,
+        private vcRef: ViewContainerRef,
+        private http: Http,
         private changeDetectorRef: ChangeDetectorRef) {
         super(changeDetectorRef);
+
+        this.route.queryParams.subscribe(params => {
+            let JsonRoom = params['room'];
+            this.room = <Room>JSON.parse(JsonRoom);
+        });
         
-        this.repairs = new Array<Repair>();
-        this.repairs.push({RepairID: 0, Description: "Λάμπα καμένη", TaskName: "", StartAt: null, EndAt: null});
-        this.repairs.push({RepairID: 1, Description: "Καλοριφέρ", TaskName: "", StartAt: new Date(), EndAt: null});
-        this.repairs.push({RepairID: 1, Description: "Πέφτει συνεχώς το ρεύμα", TaskName: "", StartAt: new Date(), EndAt: new Date()});
+        store.dispatch(repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
 
-        // this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
-
-        // this.rooms = store.select(fromRoot.getRooms);
-        // this.isLoading = store.select(fromRoot.getRoomsLoading);
+        this.repairs = store.select(fromRoot.getRepairs);
+        this.isLoading = store.select(fromRoot.getRepairsLoading);
     }
 
     ngOnInit() {
@@ -60,13 +72,86 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
 
     onPendingSelected() {
         this.selectedNavButton = 1;
-        // this.daysBefore = 0;
-        // this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
+        this.daysBefore = 0;
+        this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
     }
 
     onAllSelected() {
         this.selectedNavButton = 2;
-        // this.daysBefore = 30;
-        // this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
+        this.daysBefore = 30;
+        this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
+    }
+
+    onAddAnnouncement() {
+        this.createModalView(this.room.RoomID)
+        .then(() => {
+            this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
+        })
+        .catch((err) => {
+            this.handleError(err);
+        });
+    }
+
+    onStart(repairID: number) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        let body = JSON.stringify({
+            hotelsn: Config.hotelSN,
+            repairid: repairID,
+            maintenanceid: null,
+            description: null,
+            technicianid: null,
+            starttime: new Date(),
+            endtime: null
+        });
+
+        this.http.post(Config.apiUrl + 'Repair',
+            body,
+            { headers: headers })
+            .subscribe(response => {
+                if (response.status == 200) {
+                    this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
+                }            
+            });
+    }
+
+    onFixed(repairID: number) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        let body = JSON.stringify({
+            hotelsn: Config.hotelSN,
+            repairid: repairID,
+            maintenanceid: null,
+            description: null,
+            technicianid: null,
+            starttime: null,
+            endtime: new Date()
+        });
+
+        this.http.post(Config.apiUrl + 'Repair',
+            body,
+            { headers: headers })
+            .subscribe(response => {
+                if (response.status == 200) {
+                    this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
+                }            
+            });
+    }
+
+    private createModalView(roomNumber: number): Promise<any> {
+        const options: ModalDialogOptions = {
+          viewContainerRef: this.vcRef,
+          context: {roomNumber: roomNumber},
+          fullscreen: false,      
+        };
+    
+        return this.modalService.showModal(AddRepairModalComponent, options);
+    }
+
+    private handleError(error: any) {
+        alert("[Room Repairs] Error: " + error);
+        console.dir(error);
     }
 }

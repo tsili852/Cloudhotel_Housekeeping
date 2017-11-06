@@ -13,8 +13,7 @@ export interface Room {
     status: Status;
     bed_status: Status;
     bathroom_status: Status;
-    towels_status: Status;
-    
+    towels_status: Status;    
 }
 
 enum Status {

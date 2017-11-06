@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
@@ -6,17 +6,28 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptUIListViewModule } from "nativescript-pro-ui/listview/angular";
 import { DrawerComponent } from "./components/drawer/drawer.component";
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular";
+import { DropDownModule } from "nativescript-drop-down/angular";
 import { StoreModule, Store } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
 import reducer from "./reducers/index";
-import { RoomActions } from "./actions/index";
-import { RoomEffects } from "./effects";
+import { RoomActions, RepairActions, TechnitianActions } from "./actions/index";
+import { RoomEffects, RepairEffects, TechnitianEffects } from "./effects";
 import { RoomService } from "./shared/room/room.service";
+import { RoomRepairsService } from "./shared/repair/room-repairs.service";
+import { TechnitianListService } from "./shared/technitian/technitian-list.service";
+import { AddRepairModalComponent } from "./components/add-repair-modal/add-repair-modal";
+
+export const EFFECTS = [
+  EffectsModule.run(RoomEffects),
+  EffectsModule.run(RepairEffects),
+  EffectsModule.run(TechnitianEffects)
+];
 
 @NgModule({
+  entryComponents: [AddRepairModalComponent],
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
@@ -24,16 +35,18 @@ import { RoomService } from "./shared/room/room.service";
     NativeScriptRouterModule,
     NativeScriptUIListViewModule,
     NativeScriptUISideDrawerModule,
+    DropDownModule,
     NativeScriptRouterModule.forRoot(routes),
     StoreModule.provideStore(reducer),
-    EffectsModule.run(RoomEffects)
+    EFFECTS
   ],
   declarations: [
     AppComponent,
     DrawerComponent,
+    AddRepairModalComponent,
     ...navigatableComponents
   ],
-  providers: [RoomActions, RoomService],
+  providers: [TechnitianActions, TechnitianListService, RoomActions, RoomService, RepairActions, RoomRepairsService, {provide: LOCALE_ID, useValue:"el-GR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

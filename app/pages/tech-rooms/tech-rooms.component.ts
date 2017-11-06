@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone, ElementRef, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { Page } from "ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
+import { NavigationExtras } from "@angular/router";
 import { TnsSideDrawer } from "nativescript-sidedrawer";
 import * as applicationSettings from "tns-core-modules/application-settings";
 import { Room } from "../../shared/room/room";
@@ -30,6 +31,7 @@ import * as fromRoot from "../../reducers/index"
 export class TechRoomsComponent extends DrawerPage implements OnInit {
     rooms: Observable<any>;
     isLoading: Observable<boolean>;
+    roomsArray: Array<Room>;
     skipRooms: number = 0;
     takeRooms: number = 20;
     selectedNavButton = 1;
@@ -54,7 +56,16 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
 
         this.rooms = store.select(fromRoot.getRooms);
+        this.rooms.subscribe(rooms => {
+            this.roomsArray = new Array<Room>();
+            rooms.forEach(room => {
+                this.roomsArray.push(room);
+            });
+        })
         this.isLoading = store.select(fromRoot.getRoomsLoading);
+        this.isLoading.subscribe(loading => {
+            console.log(JSON.stringify(loading));
+        })
     }
 
     ngOnInit() {
@@ -74,7 +85,7 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         this.routerExtensions.navigate(["/technitians"], { clearHistory: true });
     }
 
-    onRepairsSelected() {
+    onPendingSelected() {
         this.selectedNavButton = 1;
         this.daysBefore = 0;
         this.store.dispatch(this.roomActions.loadRooms(this.skipRooms, this.takeRooms, this.daysBefore));
@@ -87,7 +98,13 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
     }
 
     onItemSelected(args) {
-        this.routerExtensions.navigate(["/room-repairs"]);
+        let room = this.roomsArray[args.index];
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                'room': JSON.stringify(room)                
+            }
+        }
+        this.routerExtensions.navigate(["/room-repairs"], navigationExtras);
     }
 
     // public onSwipeCellStarted(args: ListViewEventData) {
