@@ -32,6 +32,7 @@
     "nativescript-bluetooth": "^1.2.0",
     "nativescript-cardview": "^2.0.4",
     "nativescript-drop-down": "^3.2.0",
+    "nativescript-fancyalert": "^1.1.2",
     "nativescript-floatingactionbutton": "^4.1.1",
     "nativescript-pro-ui": "^3.1.4",
     "nativescript-ripple": "^2.0.0",

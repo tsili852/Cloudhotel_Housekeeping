@@ -22,6 +22,7 @@ import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/mod
 import { AddRepairModalComponent } from "../../components/add-repair-modal/add-repair-modal";
 import { Http, Headers } from "@angular/http";
 import { Config } from "../../shared/config";
+import { TNSFancyAlert, TNSFancyAlertButton } from "nativescript-fancyalert";
 import * as elementRegistryModule from 'nativescript-angular/element-registry';
 elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
 import * as fromRoot from "../../reducers/index"
@@ -102,7 +103,16 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
     }
 
     onChange(repairID: number) {
-
+        // this.createChangeModalView(this.room.RoomID, repairID)
+        // .then(() => {
+        //     this.store.dispatch(this.repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
+        // })
+        // .catch((err) => {
+        //     this.handleError(err);
+        // });
+        // TNSFancyAlert.showInfo("Change the description", "Just type anythinng and hit save", "Save");
+        let initialValue = null;
+        TNSFancyAlert.showTextField('Enter your name', initialValue, new TNSFancyAlertButton({ label: 'Save', action: (value: any) => { console.log(`User entered ${value}`);}}), undefined, undefined, 'User Input?', `Yeah, sure we can.`, 'Ok, lots of options.');
     }
 
     onStart(repairID: number) {
@@ -163,10 +173,13 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
         return this.modalService.showModal(AddRepairModalComponent, options);
     }
 
-    private createChangeModalView(roomNumber: number): Promise<any> {
+    private createChangeModalView(roomNumber: number, repairId: number): Promise<any> {
         const options: ModalDialogOptions = {
           viewContainerRef: this.vcRef,
-          context: {roomNumber: roomNumber},
+          context: {
+              roomNumber: roomNumber,
+              repairId: repairId
+            },
           fullscreen: false,      
         };
     
