@@ -1,5 +1,5 @@
 <ActionBar class="custom-action-bar" title="Repairs">
-    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
+    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_action_menu"></NavigationButton>
     <!-- <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem> -->
 </ActionBar>
 
@@ -26,15 +26,13 @@
                             </StackLayout>
                             <StackLayout col="1" orientation="horizontal">
                                 <Label id="repairs-count" 
-                                    [visibility]="room.Repairs.length > 0 ? 'visible' : 'collapsed'" 
-                                    verticalAlignment="bottom" 
+                                    [visibility]="room.Repairs.length > 3 ? 'visible' : 'collapsed'" 
+                                    verticalAlignment="center" 
                                     horizontalAlignment="right"
                                     [text]="'(' + room.Repairs.length + ')'"></Label>
-                                <Label id="repairs-description" verticalAlignment="center" [text]="' [' + repair.Description + '] '" *ngFor="let repair of room.Repairs"></Label>
-
-                                <!-- <Button id="btn-announce" width="50" height="50" (tap)="onAnnounce(room.id)"></Button>
-                                <Button id="btn-repair-start" width="50" height="50" (tap)="onRepairStart(item.number)"></Button>
-                                <Button id="btn-all-fixed" width="50" height="50" (tap)="onFixAll(item.number)"></Button> -->
+                                <Label id="repairs-description" verticalAlignment="center" 
+                                    [text]="' [' + repair.Description + (!repair.EndAt ? '*' : '') + '] '" 
+                                    *ngFor="let repair of room.Repairs"></Label>
                             </StackLayout>
                         </GridLayout>
                         <StackLayout height="1" backgroundColor="#9499a3"></StackLayout>

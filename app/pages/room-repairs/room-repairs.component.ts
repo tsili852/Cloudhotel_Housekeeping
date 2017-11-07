@@ -39,7 +39,6 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
     room: Room;
     repairs: Observable<any>;
     isLoading: Observable<boolean>;
-    repairsCounter: number = 0;
     daysBefore = 30;
 
     constructor(private routerExtensions: RouterExtensions,
@@ -64,17 +63,20 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
         store.dispatch(repairActions.loadRepairs(this.room.RoomID, this.daysBefore));
 
         this.repairs = store.select(fromRoot.getRepairs);
-        this.repairs.subscribe(repairs => {
-            this.repairsCounter = repairs.lenght;
-        });
         this.isLoading = store.select(fromRoot.getRepairsLoading);
     }
 
     ngOnInit() {
         this.page.actionBarHidden = false;
-        if (this.repairsCounter == 0) {
-            this.onAddAnnouncement();
-        }
+        // this.repairs.subscribe(repairs => {
+        //     if (repairs.length == 0) {
+        //         this.onAddAnnouncement();
+        //     }
+        // });
+    }
+
+    goBack() {
+        this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
 
     onPendingSelected() {
@@ -97,6 +99,10 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
         .catch((err) => {
             this.handleError(err);
         });
+    }
+
+    onChange(repairID: number) {
+
     }
 
     onStart(repairID: number) {
@@ -148,6 +154,16 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
     }
 
     private createModalView(roomNumber: number): Promise<any> {
+        const options: ModalDialogOptions = {
+          viewContainerRef: this.vcRef,
+          context: {roomNumber: roomNumber},
+          fullscreen: false,      
+        };
+    
+        return this.modalService.showModal(AddRepairModalComponent, options);
+    }
+
+    private createChangeModalView(roomNumber: number): Promise<any> {
         const options: ModalDialogOptions = {
           viewContainerRef: this.vcRef,
           context: {roomNumber: roomNumber},

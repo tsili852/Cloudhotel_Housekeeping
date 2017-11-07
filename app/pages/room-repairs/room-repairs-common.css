@@ -27,7 +27,7 @@ ListView {
 .btns-container {
     background-color: #639FFA;
 }
-
+/* 
 .top-navigation-btn {
     text-align: center;
     background-color: #DEDEDE;
@@ -38,13 +38,13 @@ ListView {
 .top-navigation-btn.selected {
     background-color: #FF5536;
     color: white;
-}
+} */
 
 .fab-button {
     height: 50;
     width: 7500;
     margin: 15;
-    background-color: #D00B1E;
+    background-color: #C5A831;
     horizontal-align: right;
     vertical-align: bottom;
 }

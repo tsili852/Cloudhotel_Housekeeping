@@ -19,6 +19,7 @@ import { RoomService } from "./shared/room/room.service";
 import { RoomRepairsService } from "./shared/repair/room-repairs.service";
 import { TechnitianListService } from "./shared/technitian/technitian-list.service";
 import { AddRepairModalComponent } from "./components/add-repair-modal/add-repair-modal";
+import { ChangeRepairDescriptionModalComponent } from "./components/change-repair-description-modal/change-repair-description-modal";
 
 export const EFFECTS = [
   EffectsModule.run(RoomEffects),
@@ -27,7 +28,7 @@ export const EFFECTS = [
 ];
 
 @NgModule({
-  entryComponents: [AddRepairModalComponent],
+  entryComponents: [AddRepairModalComponent, ChangeRepairDescriptionModalComponent],
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
@@ -44,6 +45,7 @@ export const EFFECTS = [
     AppComponent,
     DrawerComponent,
     AddRepairModalComponent,
+    ChangeRepairDescriptionModalComponent,
     ...navigatableComponents
   ],
   providers: [TechnitianActions, TechnitianListService, RoomActions, RoomService, RepairActions, RoomRepairsService, {provide: LOCALE_ID, useValue:"el-GR"}],

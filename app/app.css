@@ -26,8 +26,8 @@ TextField {
     padding-top: 10;
     border-color: transparent; 
     border-width: 1;
-    background-color:  #1976d2;
-    color: white;
+    background-color:  #b3e5fc;
+    color: black;
 }
 
 .action-image {
@@ -54,7 +54,7 @@ TextField {
     height: 100;
     text-align: center;
     vertical-align: center;
-    background-color: #ffbfaa;
+    background-color: #F9FF7B;
     color: white;
 }
 
@@ -71,7 +71,7 @@ TextField {
     margin-left: 20;
     margin-right: 20;
     margin-top: 5;
-    background-color: #ffbfaa;
+    background-color: #FED951;
 }
 
 .sideTitleStackLayout .h2 {

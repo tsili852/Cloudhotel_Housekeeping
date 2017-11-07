@@ -1,5 +1,5 @@
 <ActionBar class="custom-action-bar" [title]="'Repairs for room ' + room.Number">
-    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_menu_white_24dp"></NavigationButton>
+    <NavigationButton (tap)="goBack()" class="action-bar-item" icon="res://ic_arrow_back_black_24dp"></NavigationButton>
     <!-- <ActionItem (tap)="changeTechnitian()" icon="res://contractor" ios.position="right" android.position="actionBar"></ActionItem> -->
 </ActionBar>
 
@@ -8,15 +8,15 @@
         <drawer-content></drawer-content>
     </StackLayout>
     <StackLayout tkMainContent>
-        <GridLayout id="list-container" rows="auto, *">
-            <StackLayout class="btns-container" row="0" orientation="horizontal" width="100%" horizontalAlignment="center">
+        <GridLayout id="list-container" rows="*">
+            <!-- <StackLayout class="btns-container" row="0" orientation="horizontal" width="100%" horizontalAlignment="center">
                 <Button id="repairs-button" [class.selected]="this.selectedNavButton == 1" class="top-navigation-btn btn btn-active" text="Pending"
                     width="150" (tap)="onPendingSelected()"></Button>
                 <Button id="all-button" [class.selected]="this.selectedNavButton == 2" class="top-navigation-btn btn btn-active" text="All"
                     width="150" (tap)="onAllSelected()"></Button>
-            </StackLayout>
+            </StackLayout> -->
             <!-- <Label row="0" id="tech-name" [text]="technitian.name" horizontalAlignment="center"></Label> -->
-            <ListView #repairsList id="repairsList" row="1" [items]="repairs | async" selectionBehavior="Press" swipeActions="true" (itemSelected)="onItemSelected($event)">
+            <ListView #repairsList id="repairsList" row="0" [items]="repairs | async" selectionBehavior="Press" swipeActions="true" (itemSelected)="onItemSelected($event)">
                 <ng-template let-repair="item" nsTemplateKey="contents">
                     <!-- <StackLayout>
                         <StackLayout class="row-container" orientation="vertical" [class.started]="repair.StartAt && !repair.EndAt" [class.ended]="repair.EndAt">
@@ -33,12 +33,13 @@
                             <StackLayout row="2" orientation="horizontal">
                                 <Button [visibility]="!repair.StartAt ? 'visible' : 'collapsed'" text="Start" backgroundColor="#FF5141" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onStart(repair.RepairID)></Button>
                                 <Button [visibility]="(!repair.EndAt && repair.StartAt) ? 'visible' : 'collapsed'" text="Fixed" backgroundColor="#9ccc65" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onFixed(repair.RepairID)></Button>
+                                <Button [visibility]="!repair.EndAt ? 'visible' : 'collapsed'" text="Change" backgroundColor="#FED951" color="black" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onChange(repair.RepairID)></Button>
                             </StackLayout>
                         </GridLayout>
                     </CardView>
                 </ng-template>
             </ListView>
-            <FAB row="1" (tap)="onAddAnnouncement()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="repairsList"
+            <FAB row="0" (tap)="onAddAnnouncement()" icon="res://ic_add_white_24dp" rippleColor="#f1f1f1" class="fab-button" hideOnSwipeOfView="repairsList"
                 swipeAnimation="slideDown"></FAB>
         </GridLayout>
     </StackLayout>
