@@ -4,10 +4,12 @@ import { TechnitiansComponent } from './pages/technitians/technitians.component'
 import { RoomsComponent } from "./pages/rooms/rooms.component";
 import { TechRoomsComponent } from './pages/tech-rooms/tech-rooms.component';
 import { RoomRepairsComponent } from "./pages/room-repairs/room-repairs.component";
+import { PreconfigureComponent } from "./pages/preconfigure/preconfigure.component";
 
 export const routes = [
   { path: "", redirectTo:"/main", pathMatch: "full"},
   { path: "main", component: MainComponent },
+  { path: "preconfigure", component: PreconfigureComponent },
   { path: "maids", component: MaidsComponent },
   { path: "technitians", component: TechnitiansComponent },
   { path: "rooms", component: RoomsComponent },
@@ -21,5 +23,6 @@ export const navigatableComponents = [
     TechnitiansComponent,
     RoomsComponent,
     TechRoomsComponent,
-    RoomRepairsComponent
+    RoomRepairsComponent,
+    PreconfigureComponent
 ];

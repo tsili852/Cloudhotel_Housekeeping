@@ -1,0 +1,26 @@
+.form-items {
+    font-size: 22;
+}
+
+#container {
+    margin-top: 100;
+    padding: 20;
+    margin-right: 10;
+    margin-left: 10;
+    background-color: white;
+    border-radius: 10;
+    height: 230;
+}
+
+#hotelsn {
+    width: 200;
+    text-align: center;
+}
+
+#submit-button {
+    width: 200;
+    background-color: #FED951;
+    color: black;
+    text-transform: capitalize;
+    font-size: 16;
+}

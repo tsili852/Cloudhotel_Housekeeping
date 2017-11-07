@@ -9,6 +9,7 @@ import { Store } from "@ngrx/store";
 import { TechnitianActions } from "../../actions";
 import { AddRepairModal } from '../../shared/add-repair-modal/add-repair-modal';
 import { Technitian } from "../../shared/technitian/technitian";
+import { MaintenanceTask, MaintenanceTaskService } from "../../shared/maintenance-task/index";
 import * as fromRoot from "../../reducers/index"
 import { Http, Headers } from "@angular/http";
 import { Config } from "../../shared/config";
@@ -20,14 +21,20 @@ import { Config } from "../../shared/config";
 export class AddRepairModalComponent implements OnInit {
     modal: AddRepairModal;
     roomNumber: number;
-    technitians: Observable<any>;
+    technitiansObs: Observable<any>;
+    mTasksObs: Observable<any>;
+    technitiansList: Array<Technitian>;
+    mTasksList: Array<MaintenanceTask>;
     selectedTechnitianIndex: number = 0;
     technitiansNames: Array<string>;
+    selectedMTaskIndex: number = 0;
+    mTasksNames: Array<string>;
 
     constructor(private params: ModalDialogParams,
         private page: Page,
         private http: Http,
         private store: Store<AppState>,
+        private mtaskService: MaintenanceTaskService,
         private technitianActions: TechnitianActions) {
 
         this.modal = new AddRepairModal();
@@ -36,13 +43,24 @@ export class AddRepairModalComponent implements OnInit {
 
         this.store.dispatch(this.technitianActions.loadTechnitians());
 
-        this.technitians = store.select(fromRoot.getTechnitians);
-        this.technitians
+        this.technitiansObs = store.select(fromRoot.getTechnitians);
+        this.technitiansObs
             .subscribe(techs => {
+                this.technitiansList = techs;
                 this.technitiansNames = new Array<string>();
                 techs.forEach(tech => {
                     this.technitiansNames.push(tech.Name);
                 });
+            })
+
+        this.mTasksObs = this.mtaskService.getMaintenanceTasks();
+
+        this.mTasksObs.subscribe(tasks => {
+                this.mTasksList = tasks;
+                this.mTasksNames = new Array<string>();
+                tasks.forEach(t => {
+                    this.mTasksNames.push(t.Name);
+                })
             })
 
         this.page.on("unloaded", () => {
@@ -62,10 +80,10 @@ export class AddRepairModalComponent implements OnInit {
         let body = JSON.stringify({
             hotelsn: Config.hotelSN,
             roomid: this.roomNumber,
-            maintenanceid: null,
+            maintenanceid: this.mTasksList[this.selectedMTaskIndex].MaintenanceTaskID,
             description: this.modal.description,
             whoreported: 16,
-            technicianid: null
+            technicianid: this.technitiansList[this.selectedTechnitianIndex].TechnitianID
         });
 
         this.http.post(Config.apiUrl + 'Announcement',

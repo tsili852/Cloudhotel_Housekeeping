@@ -14,8 +14,8 @@ import { Http, Headers } from "@angular/http";
 import { Config } from "../../shared/config";
 
 @Component({
-    selector: "add-repair-modal",
-    templateUrl: "components/add-repair-modal/add-repair-modal.html"
+    selector: "change-repair-description-modal",
+    templateUrl: "components/change-repair-description-modal/change-repair-description-modal.html"
 })
 export class ChangeRepairDescriptionModalComponent implements OnInit {
     modal: ChangeRepairModal;
@@ -32,6 +32,7 @@ export class ChangeRepairDescriptionModalComponent implements OnInit {
         this.modal.description = "";
         this.roomNumber = params.context.roomNumber;
         this.repairId = params.context.repairId;
+        this.modal.description = params.context.description;
 
         this.page.on("unloaded", () => {
             this.params.closeCallback();

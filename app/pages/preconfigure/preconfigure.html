@@ -1,0 +1,8 @@
+<ActionBar class="custom-action-bar" title="Welcome Housekeeping">
+</ActionBar>
+
+<StackLayout id="container" #container orientation="vertical" verticalAlignment="top">
+    <Label class="form-items p-y-10" text="Your Hotel information" horizontalAlignment="center"></Label>
+    <TextField id="hotelsn" #hotelsn class="form-items p-y-10" keyboardType="number" hint="Serial Number"></TextField>
+    <Button id="submit-button" class="m-t-10" text="Sumbit" (tap)="onSubmit()"></Button>
+</StackLayout>

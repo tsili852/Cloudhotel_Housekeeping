@@ -19,7 +19,9 @@ import { RoomService } from "./shared/room/room.service";
 import { RoomRepairsService } from "./shared/repair/room-repairs.service";
 import { TechnitianListService } from "./shared/technitian/technitian-list.service";
 import { AddRepairModalComponent } from "./components/add-repair-modal/add-repair-modal";
+import { ConfigurationService } from "./shared/configuration.service";
 import { ChangeRepairDescriptionModalComponent } from "./components/change-repair-description-modal/change-repair-description-modal";
+import { MaintenanceTaskService } from "./shared/maintenance-task/maintenance-task.service";
 
 export const EFFECTS = [
   EffectsModule.run(RoomEffects),
@@ -48,7 +50,15 @@ export const EFFECTS = [
     ChangeRepairDescriptionModalComponent,
     ...navigatableComponents
   ],
-  providers: [TechnitianActions, TechnitianListService, RoomActions, RoomService, RepairActions, RoomRepairsService, {provide: LOCALE_ID, useValue:"el-GR"}],
+  providers: [TechnitianActions, 
+    TechnitianListService, 
+    RoomActions, 
+    RoomService, 
+    RepairActions, 
+    RoomRepairsService, 
+    MaintenanceTaskService,
+    ConfigurationService,
+    {provide: LOCALE_ID, useValue:"el-GR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

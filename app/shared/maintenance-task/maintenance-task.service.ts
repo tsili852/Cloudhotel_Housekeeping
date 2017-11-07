@@ -7,19 +7,19 @@ import { ConfigurationService } from "../../shared/configuration.service";
 // import "rxjs/add/operator/catch";
 
 
-import { Room } from './room';
+import { MaintenanceTask } from './maintenance-task';
 import { Config } from '../config';
 
 @Injectable()
-export class RoomService {
+export class MaintenanceTaskService {
     constructor(private http: Http, private configurationService: ConfigurationService) {}
 
-    getAllRooms(daysBefore: number): Observable<Room[]> {
+    getMaintenanceTasks(): Observable<MaintenanceTask[]> {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         return this.http.get(Config.apiUrl + 
-            'GetRoomsAndTasksAsync?HotelSN=' + this.configurationService.getHotelSN() + '&daysBefore=' + daysBefore, { headers: headers })
+            'GetMaintenanceTasksAsync?HotelSN=' + this.configurationService.getHotelSN(), { headers: headers })
         .map(response => response.json())        
         .catch(this.handleErrors);
     }

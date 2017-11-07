@@ -1,10 +1,12 @@
 <StackLayout class="p-y-10 p-x-10" orientation="vertical" backgroundColor="white" style="font-size:24" width="400">
     <Label [text]="'Room: ' + roomNumber" horizontalAlignment="center" style="text-decoration:underline"></Label>
+    <DropDown #ddMTasks [items]="mTasksNames" [(ngModel)]="selectedMTaskIndex" (selectedIndexChanged)="onchangeMTask($event)"
+        row="0" colSpan="2"></DropDown>
     <DropDown #dd [items]="technitiansNames" [(ngModel)]="selectedTechnitianIndex" (selectedIndexChanged)="onchange($event)"
         row="0" colSpan="2"></DropDown>
     <StackLayout class="hr-dark"></StackLayout>
-    <TextView [(ngModel)]="modal.description" hint="Description..." style="margin-top: 15" borderColor="#DEDEDE" borderWidth="1" height="100"
-        returnKeyType="send" class="input input-border"></TextView>
+    <TextView [(ngModel)]="modal.description" hint="Description..." style="margin-top: 15" borderColor="#DEDEDE" borderWidth="1"
+        height="100" returnKeyType="send" class="input input-border"></TextView>
     <StackLayout orientation="horizontal" horizontalAlignment="center">
         <Button class="btn btn-primary btn-active" text="Save" (tap)="onSaveAnnouncement()" style="margin-top: 20; background-color: #D00B1E"></Button>
         <Button class="btn btn-primary btn-active" text="Cancel" (tap)="onCancel()" style="margin-top: 20; background-color:#f2f2f2; color:black"></Button>
