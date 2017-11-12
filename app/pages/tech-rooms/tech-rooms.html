@@ -25,11 +25,10 @@
                                 <Label class="room-name" [text]="room.Number"></Label>                                
                             </StackLayout>
                             <StackLayout col="1" orientation="horizontal">
-                                <Label id="repairs-count" 
-                                    [visibility]="room.Repairs.length > 3 ? 'visible' : 'collapsed'" 
+                                <Label id="repairs-count"                                     
                                     verticalAlignment="center" 
                                     horizontalAlignment="right"
-                                    [text]="'(' + room.Repairs.length + ')'"></Label>
+                                    [text]="'(' + (room.Repairs | where: aIsPending | count ) + ')'"></Label>
                                 <Label id="repairs-description" verticalAlignment="center" 
                                     [text]="' [' + repair.Description + (!repair.EndAt ? '*' : '') + '] '" 
                                     *ngFor="let repair of room.Repairs"></Label>

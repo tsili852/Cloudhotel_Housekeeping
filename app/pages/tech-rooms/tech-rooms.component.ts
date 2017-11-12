@@ -107,6 +107,10 @@ export class TechRoomsComponent extends DrawerPage implements OnInit {
         this.routerExtensions.navigate(["/room-repairs"], navigationExtras);
     }
 
+    aIsPending(item) {
+        return !item.EndAt;
+    }
+
     // public onSwipeCellStarted(args: ListViewEventData) {
     //     var swipeLimits = args.data.swipeLimits;
     //     swipeLimits.threshold = 60 * layout.getDisplayDensity();

@@ -42,6 +42,10 @@ export class RoomRepairsComponent extends DrawerPage implements OnInit {
     repairs: Observable<any>;
     isLoading: Observable<boolean>;
     daysBefore = 30;
+    todays: Date = new Date();
+    startIcon = String.fromCharCode(0xf04b);
+    changeIcon = String.fromCharCode(0xf040);
+    endIcon = String.fromCharCode(0xf14a);
 
     constructor(private routerExtensions: RouterExtensions,
         private route: ActivatedRoute,

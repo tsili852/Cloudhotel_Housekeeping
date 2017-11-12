@@ -9,6 +9,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/a
 import { DropDownModule } from "nativescript-drop-down/angular";
 import { StoreModule, Store } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
+import { MomentModule } from "angular2-moment";
+import { NgArrayPipesModule } from "angular-pipes";
 
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
@@ -39,6 +41,8 @@ export const EFFECTS = [
     NativeScriptUIListViewModule,
     NativeScriptUISideDrawerModule,
     DropDownModule,
+    MomentModule,
+    NgArrayPipesModule,
     NativeScriptRouterModule.forRoot(routes),
     StoreModule.provideStore(reducer),
     EFFECTS

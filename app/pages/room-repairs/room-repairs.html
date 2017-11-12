@@ -26,14 +26,23 @@
                     <CardView class="cardStyle" margin="5" elevation="10" radius="5">
                         <GridLayout class="p-x-10 p-y-5" rows="auto, *, auto">
                             <Label row="0" class="card-item" [text]="'[' + repair.TaskName + '] ' + repair.Description"></Label>
-                            <StackLayout row="1" orientation="vertical" [visibility]="repair.StartAt ? 'visible' : 'collapsed'">
-                                <Label fontSize="18" [text]="'Started: ' + (repair.StartAt | date:'dd.MM.yy h:mm')"></Label>
-                                <Label [visibility]="repair.EndAt ? 'visible' : 'collapsed'" fontSize="18" [text]="'Ended: ' + (repair.EndAt | date:'dd.MM.yy h:mm')" style="margin-left:8"></Label>
+                            <StackLayout row="1" orientation="vertical">
+                                <Label fontSize="18" [text]="'Announced: ' + (repair.AnnouncedAt | date:'d.M.yy h:mm') + ' / ' + (repair.AnnouncedAt | amTimeAgo)"></Label>
+                                <Label 
+                                    [visibility]="repair.StartAt ? 'visible' : 'collapsed'" 
+                                    fontSize="18" 
+                                    [text]="'Started: ' + (repair.StartAt | date:'d.M.yy h:mm') + ' / ' + (repair.StartAt | amTimeAgo)"
+                                    style="margin-left:33"></Label>
+                                <Label [visibility]="repair.EndAt ? 'visible' : 'collapsed'" fontSize="18" [text]="'Ended: ' + (repair.EndAt | date:'d.M.yy h:mm')"
+                                    style="margin-left:41"></Label>
                             </StackLayout>
                             <StackLayout row="2" orientation="horizontal">
-                                <Button [visibility]="!repair.StartAt ? 'visible' : 'collapsed'" text="Start" backgroundColor="#FF5141" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onStart(repair.RepairID)></Button>
-                                <Button [visibility]="(!repair.EndAt && repair.StartAt) ? 'visible' : 'collapsed'" text="Fixed" backgroundColor="#9ccc65" class="btn btn-rounded-sm btn-active btn-actions" (tap)=onFixed(repair.RepairID)></Button>
-                                <Button [visibility]="!repair.EndAt ? 'visible' : 'collapsed'" text="Change" backgroundColor="#FED951" color="black" class="btn btn-rounded-sm btn-active btn-actions" (tap)="onChange(repair.RepairID,repair.Description)"></Button>
+                                <Button [visibility]="!repair.StartAt ? 'visible' : 'collapsed'" [text]="startIcon + '  Start'" backgroundColor="#FF5141" class="btn btn-rounded-sm btn-active btn-actions fa"
+                                    (tap)=onStart(repair.RepairID)></Button>
+                                <Button [visibility]="(!repair.EndAt && repair.StartAt) ? 'visible' : 'collapsed'" [text]="endIcon + '  Fixed'" backgroundColor="#9ccc65"
+                                    class="btn btn-rounded-sm btn-active btn-actions fa" (tap)=onFixed(repair.RepairID)></Button>
+                                <Button [visibility]="!repair.EndAt ? 'visible' : 'collapsed'" [text]="changeIcon + '  Change'" backgroundColor="#C5A831" color="white" class="btn btn-rounded-sm btn-active btn-actions fa"
+                                    (tap)="onChange(repair.RepairID,repair.Description)"></Button>
                             </StackLayout>
                         </GridLayout>
                     </CardView>

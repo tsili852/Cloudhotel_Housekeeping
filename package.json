@@ -26,6 +26,8 @@
     "@ngrx/effects": "^2.0.5",
     "@ngrx/router-store": "^4.1.0",
     "@ngrx/store": "^2.2.3",
+    "angular-pipes": "^6.5.3",
+    "angular2-moment": "^1.7.0",
     "he": "^1.1.1",
     "lodash": "^4.17.4",
     "nativescript-angular": "~4.4.1",
