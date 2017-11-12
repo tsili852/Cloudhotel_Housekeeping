@@ -22,4 +22,8 @@ export class DrawerComponent {
     goToTechnitians() {
         this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
+
+    goToSettings() {
+        this.routerExtensions.navigate(["settings", { clearHistory: true }]);
+    }
 }

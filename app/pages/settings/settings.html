@@ -1,0 +1,35 @@
+<ActionBar class="custom-action-bar" title="Welcome Housekeeping">
+    <NavigationButton (tap)="openDrawer()" class="action-bar-item" icon="res://ic_action_menu"></NavigationButton>
+</ActionBar>
+
+<RadSideDrawer drawerTransition="PushTransition" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <drawer-content></drawer-content>
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <TabView selectedIndex="0" (selectedIndexChange)="onIndexChanged($event)" iosIconRenderingMode="alwaysOriginal">
+            <StackLayout *tabItem="{title: 'Maintenance Tasks'}" backgroundColor="#DFDFDF">
+                <Label id="mtask-title" [text]="wrenchIcon + ' Maintenance Tasks'" class="m-t-10 h2 txt-center fa" horizontalAlignment="center"></Label>
+                <ListView #listview id="mtasks-list" [items]="mTasksList" class="list-group">
+                    <ng-template let-item="item" let-itemIndex="index" nsTemplateKey="contents">
+                        <GridLayout columns="auto, 40">
+                            <TextField col="0" class="mtask-field" [(ngModel)]="item.Name" hint="Name"></TextField>
+                            <Button col="1" class="delete-button fa" text="&#xf1f8"></Button>
+                        </GridLayout>
+                        <!-- <StackLayout>
+                            <StackLayout class="row-container" orientation="vertical" [backgroundColor]="!item.MaintenanceTaskID ? '#ffffff' : '#e0e0e0'">
+                                <TextField class="mtask-field" [(ngModel)]="item.Name" hint="Name"></TextField>
+                            </StackLayout>
+                        </StackLayout> -->
+                    </ng-template>
+                </ListView>
+            </StackLayout>
+            <StackLayout *tabItem="{title: 'General'}">
+                <Label text="NativeScript 2" class="m-15 h2 txt-left" color="blue"></Label>
+                <ScrollView>
+                    <Label [text]="content" textWrap="true" class="m-15"></Label>
+                </ScrollView>
+            </StackLayout>
+        </TabView>
+    </StackLayout>
+</RadSideDrawer>

@@ -5,6 +5,7 @@ import { RoomsComponent } from "./pages/rooms/rooms.component";
 import { TechRoomsComponent } from './pages/tech-rooms/tech-rooms.component';
 import { RoomRepairsComponent } from "./pages/room-repairs/room-repairs.component";
 import { PreconfigureComponent } from "./pages/preconfigure/preconfigure.component";
+import { SettingsComponent } from "./pages/settings/settings.component";
 
 export const routes = [
   { path: "", redirectTo:"/main", pathMatch: "full"},
@@ -15,6 +16,7 @@ export const routes = [
   { path: "rooms", component: RoomsComponent },
   { path: "tech-rooms", component: TechRoomsComponent },
   { path: "room-repairs", component: RoomRepairsComponent },
+  { path: "settings", component: SettingsComponent },
 ];
 
 export const navigatableComponents = [
@@ -24,5 +26,6 @@ export const navigatableComponents = [
     RoomsComponent,
     TechRoomsComponent,
     RoomRepairsComponent,
-    PreconfigureComponent
+    PreconfigureComponent,
+    SettingsComponent
 ];

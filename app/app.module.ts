@@ -11,6 +11,7 @@ import { StoreModule, Store } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { MomentModule } from "angular2-moment";
 import { NgArrayPipesModule } from "angular-pipes";
+import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
@@ -43,6 +44,9 @@ export const EFFECTS = [
     DropDownModule,
     MomentModule,
     NgArrayPipesModule,
+    TNSFontIconModule.forRoot({
+			'fa': './assets/font-awesome.css'
+		}),
     NativeScriptRouterModule.forRoot(routes),
     StoreModule.provideStore(reducer),
     EFFECTS

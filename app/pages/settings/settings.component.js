@@ -1,0 +1,53 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var page_1 = require("ui/page");
+var router_1 = require("nativescript-angular/router");
+var drawer_page_1 = require("../drawer.page");
+var configuration_service_1 = require("../../shared/configuration.service");
+var nativescript_ngx_fonticon_1 = require("nativescript-ngx-fonticon");
+var index_1 = require("../../shared/maintenance-task/index");
+var SettingsComponent = /** @class */ (function (_super) {
+    __extends(SettingsComponent, _super);
+    function SettingsComponent(routerExtensions, page, configurationService, changeDetectorRef, mtaskService, fonticon) {
+        var _this = _super.call(this, changeDetectorRef) || this;
+        _this.routerExtensions = routerExtensions;
+        _this.page = page;
+        _this.configurationService = configurationService;
+        _this.changeDetectorRef = changeDetectorRef;
+        _this.mtaskService = mtaskService;
+        _this.fonticon = fonticon;
+        _this.sampleText = "NativeScript is a free and open source framework for building native iOS and Android apps using JavaScript and CSS. NativeScript renders UIs with the native platform’s rendering engine—no WebViews—resulting in native-like performance and UX.NativeScript provides a best-of-both-worlds development experience. Our cross-platform JavaScript modules give you the convenience of writing iOS and Android apps from a single JavaScript codebase, while our runtimes give you the power of accessing native APIs, SDKs, and frameworks when you need them—all without needing to open Xcode or Android Studio. NativeScript was created and is supported by Telerik.\n\n\n NativeScript doesn’t require Angular, but it’s even better when you use it. You can fully reuse skills and code from the web to build beautiful, high performance native mobile apps without web views. NativeScript features deep integration with Angular, the latest and greatest (and fastest) Angular framework. Open source and backed by Telerik.";
+        _this.content = "";
+        _this.wrenchIcon = String.fromCharCode(0xf0ad);
+        _this.mTasksObs = _this.mtaskService.getMaintenanceTasks();
+        _this.mTasksObs.subscribe(function (tasks) {
+            _this.mTasksList = tasks;
+        });
+        return _this;
+    }
+    SettingsComponent.prototype.ngOnInit = function () {
+        this.page.actionBarHidden = false;
+        this.content = this.sampleText;
+    };
+    SettingsComponent.prototype.onIndexChanged = function (args) {
+        var tabView = args.object;
+        console.log("Selected index changed! New inxed: " + tabView.selectedIndex);
+    };
+    SettingsComponent = __decorate([
+        core_1.Component({
+            selector: "settings",
+            templateUrl: "pages/settings/settings.html",
+            styleUrls: ["pages/settings/settings-common.css", "pages/settings/settings.css"]
+        }),
+        __metadata("design:paramtypes", [router_1.RouterExtensions,
+            page_1.Page,
+            configuration_service_1.ConfigurationService,
+            core_1.ChangeDetectorRef,
+            index_1.MaintenanceTaskService,
+            nativescript_ngx_fonticon_1.TNSFontIconService])
+    ], SettingsComponent);
+    return SettingsComponent;
+}(drawer_page_1.DrawerPage));
+exports.SettingsComponent = SettingsComponent;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2V0dGluZ3MuY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2V0dGluZ3MuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsc0NBQTRGO0FBRTVGLGdDQUErQjtBQUUvQixzREFBK0Q7QUFJL0QsOENBQTRDO0FBQzVDLDRFQUEwRTtBQUUxRSx1RUFBK0Q7QUFDL0QsNkRBQThGO0FBTzlGO0lBQXVDLHFDQUFVO0lBUTdDLDJCQUNZLGdCQUFrQyxFQUNsQyxJQUFVLEVBQ1Ysb0JBQTBDLEVBQzFDLGlCQUFvQyxFQUNwQyxZQUFvQyxFQUNwQyxRQUE0QjtRQU54QyxZQVFJLGtCQUFNLGlCQUFpQixDQUFDLFNBTzNCO1FBZFcsc0JBQWdCLEdBQWhCLGdCQUFnQixDQUFrQjtRQUNsQyxVQUFJLEdBQUosSUFBSSxDQUFNO1FBQ1YsMEJBQW9CLEdBQXBCLG9CQUFvQixDQUFzQjtRQUMxQyx1QkFBaUIsR0FBakIsaUJBQWlCLENBQW1CO1FBQ3BDLGtCQUFZLEdBQVosWUFBWSxDQUF3QjtRQUNwQyxjQUFRLEdBQVIsUUFBUSxDQUFvQjtRQWJ4QyxnQkFBVSxHQUFHLDArQkFBMCtCLENBQUM7UUFDeC9CLGFBQU8sR0FBVyxFQUFFLENBQUM7UUFDckIsZ0JBQVUsR0FBRyxNQUFNLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQyxDQUFDO1FBZXJDLEtBQUksQ0FBQyxTQUFTLEdBQUcsS0FBSSxDQUFDLFlBQVksQ0FBQyxtQkFBbUIsRUFBRSxDQUFDO1FBRXpELEtBQUksQ0FBQyxTQUFTLENBQUMsU0FBUyxDQUFDLFVBQUEsS0FBSztZQUMxQixLQUFJLENBQUMsVUFBVSxHQUFHLEtBQUssQ0FBQztRQUM1QixDQUFDLENBQUMsQ0FBQTs7SUFDTixDQUFDO0lBRUQsb0NBQVEsR0FBUjtRQUNJLElBQUksQ0FBQyxJQUFJLENBQUMsZUFBZSxHQUFHLEtBQUssQ0FBQztRQUNsQyxJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUM7SUFDbkMsQ0FBQztJQUVNLDBDQUFjLEdBQXJCLFVBQXNCLElBQUk7UUFDdEIsSUFBSSxPQUFPLEdBQVksSUFBSSxDQUFDLE1BQU0sQ0FBQztRQUNuQyxPQUFPLENBQUMsR0FBRyxDQUFDLHFDQUFxQyxHQUFHLE9BQU8sQ0FBQyxhQUFhLENBQUMsQ0FBQztJQUNuRixDQUFDO0lBakNZLGlCQUFpQjtRQUw3QixnQkFBUyxDQUFDO1lBQ1AsUUFBUSxFQUFFLFVBQVU7WUFDcEIsV0FBVyxFQUFFLDhCQUE4QjtZQUMzQyxTQUFTLEVBQUUsQ0FBQyxvQ0FBb0MsRUFBRSw2QkFBNkIsQ0FBQztTQUNuRixDQUFDO3lDQVVnQyx5QkFBZ0I7WUFDNUIsV0FBSTtZQUNZLDRDQUFvQjtZQUN2Qix3QkFBaUI7WUFDdEIsOEJBQXNCO1lBQzFCLDhDQUFrQjtPQWQvQixpQkFBaUIsQ0FrQzdCO0lBQUQsd0JBQUM7Q0FBQSxBQWxDRCxDQUF1Qyx3QkFBVSxHQWtDaEQ7QUFsQ1ksOENBQWlCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50LCBPbkluaXQsIEVsZW1lbnRSZWYsIFZpZXdDaGlsZCwgQ2hhbmdlRGV0ZWN0b3JSZWYgfSBmcm9tIFwiQGFuZ3VsYXIvY29yZVwiO1xuaW1wb3J0IHsgT2JzZXJ2YWJsZSB9IGZyb20gJ3J4anMvT2JzZXJ2YWJsZSc7XG5pbXBvcnQgeyBQYWdlIH0gZnJvbSBcInVpL3BhZ2VcIjtcbmltcG9ydCB7IENvbG9yIH0gZnJvbSBcImNvbG9yXCI7XG5pbXBvcnQgeyBSb3V0ZXJFeHRlbnNpb25zIH0gZnJvbSBcIm5hdGl2ZXNjcmlwdC1hbmd1bGFyL3JvdXRlclwiO1xuaW1wb3J0ICogYXMgYXBwbGljYXRpb25TZXR0aW5ncyBmcm9tIFwidG5zLWNvcmUtbW9kdWxlcy9hcHBsaWNhdGlvbi1zZXR0aW5nc1wiO1xuaW1wb3J0IHsgUmFkU2lkZURyYXdlckNvbXBvbmVudCwgU2lkZURyYXdlclR5cGUgfSBmcm9tIFwibmF0aXZlc2NyaXB0LXByby11aS9zaWRlZHJhd2VyL2FuZ3VsYXJcIjtcbmltcG9ydCB7IFJhZFNpZGVEcmF3ZXIgfSBmcm9tICduYXRpdmVzY3JpcHQtcHJvLXVpL3NpZGVkcmF3ZXInO1xuaW1wb3J0IHsgRHJhd2VyUGFnZSB9IGZyb20gXCIuLi9kcmF3ZXIucGFnZVwiO1xuaW1wb3J0IHsgQ29uZmlndXJhdGlvblNlcnZpY2UgfSBmcm9tIFwiLi4vLi4vc2hhcmVkL2NvbmZpZ3VyYXRpb24uc2VydmljZVwiO1xuaW1wb3J0IHsgVGFiVmlldywgU2VsZWN0ZWRJbmRleENoYW5nZWRFdmVudERhdGEgfSBmcm9tIFwidWkvdGFiLXZpZXdcIjtcbmltcG9ydCB7IFROU0ZvbnRJY29uU2VydmljZSB9IGZyb20gJ25hdGl2ZXNjcmlwdC1uZ3gtZm9udGljb24nO1xuaW1wb3J0IHsgTWFpbnRlbmFuY2VUYXNrLCBNYWludGVuYW5jZVRhc2tTZXJ2aWNlIH0gZnJvbSBcIi4uLy4uL3NoYXJlZC9tYWludGVuYW5jZS10YXNrL2luZGV4XCI7XG5cbkBDb21wb25lbnQoe1xuICAgIHNlbGVjdG9yOiBcInNldHRpbmdzXCIsXG4gICAgdGVtcGxhdGVVcmw6IFwicGFnZXMvc2V0dGluZ3Mvc2V0dGluZ3MuaHRtbFwiLFxuICAgIHN0eWxlVXJsczogW1wicGFnZXMvc2V0dGluZ3Mvc2V0dGluZ3MtY29tbW9uLmNzc1wiLCBcInBhZ2VzL3NldHRpbmdzL3NldHRpbmdzLmNzc1wiXVxufSlcbmV4cG9ydCBjbGFzcyBTZXR0aW5nc0NvbXBvbmVudCBleHRlbmRzIERyYXdlclBhZ2UgaW1wbGVtZW50cyBPbkluaXQge1xuICAgIHNhbXBsZVRleHQgPSBcIk5hdGl2ZVNjcmlwdCBpcyBhIGZyZWUgYW5kIG9wZW4gc291cmNlIGZyYW1ld29yayBmb3IgYnVpbGRpbmcgbmF0aXZlIGlPUyBhbmQgQW5kcm9pZCBhcHBzIHVzaW5nIEphdmFTY3JpcHQgYW5kIENTUy4gTmF0aXZlU2NyaXB0IHJlbmRlcnMgVUlzIHdpdGggdGhlIG5hdGl2ZSBwbGF0Zm9ybeKAmXMgcmVuZGVyaW5nIGVuZ2luZeKAlG5vIFdlYlZpZXdz4oCUcmVzdWx0aW5nIGluIG5hdGl2ZS1saWtlIHBlcmZvcm1hbmNlIGFuZCBVWC5OYXRpdmVTY3JpcHQgcHJvdmlkZXMgYSBiZXN0LW9mLWJvdGgtd29ybGRzIGRldmVsb3BtZW50IGV4cGVyaWVuY2UuIE91ciBjcm9zcy1wbGF0Zm9ybSBKYXZhU2NyaXB0IG1vZHVsZXMgZ2l2ZSB5b3UgdGhlIGNvbnZlbmllbmNlIG9mIHdyaXRpbmcgaU9TIGFuZCBBbmRyb2lkIGFwcHMgZnJvbSBhIHNpbmdsZSBKYXZhU2NyaXB0IGNvZGViYXNlLCB3aGlsZSBvdXIgcnVudGltZXMgZ2l2ZSB5b3UgdGhlIHBvd2VyIG9mIGFjY2Vzc2luZyBuYXRpdmUgQVBJcywgU0RLcywgYW5kIGZyYW1ld29ya3Mgd2hlbiB5b3UgbmVlZCB0aGVt4oCUYWxsIHdpdGhvdXQgbmVlZGluZyB0byBvcGVuIFhjb2RlIG9yIEFuZHJvaWQgU3R1ZGlvLiBOYXRpdmVTY3JpcHQgd2FzIGNyZWF0ZWQgYW5kIGlzIHN1cHBvcnRlZCBieSBUZWxlcmlrLlxcblxcblxcbiBOYXRpdmVTY3JpcHQgZG9lc27igJl0IHJlcXVpcmUgQW5ndWxhciwgYnV0IGl04oCZcyBldmVuIGJldHRlciB3aGVuIHlvdSB1c2UgaXQuIFlvdSBjYW4gZnVsbHkgcmV1c2Ugc2tpbGxzIGFuZCBjb2RlIGZyb20gdGhlIHdlYiB0byBidWlsZCBiZWF1dGlmdWwsIGhpZ2ggcGVyZm9ybWFuY2UgbmF0aXZlIG1vYmlsZSBhcHBzIHdpdGhvdXQgd2ViIHZpZXdzLiBOYXRpdmVTY3JpcHQgZmVhdHVyZXMgZGVlcCBpbnRlZ3JhdGlvbiB3aXRoIEFuZ3VsYXIsIHRoZSBsYXRlc3QgYW5kIGdyZWF0ZXN0IChhbmQgZmFzdGVzdCkgQW5ndWxhciBmcmFtZXdvcmsuIE9wZW4gc291cmNlIGFuZCBiYWNrZWQgYnkgVGVsZXJpay5cIjtcbiAgICBjb250ZW50OiBTdHJpbmcgPSBcIlwiO1xuICAgIHdyZW5jaEljb24gPSBTdHJpbmcuZnJvbUNoYXJDb2RlKDB4ZjBhZCk7XG5cbiAgICBtVGFza3NPYnM6IE9ic2VydmFibGU8YW55PjtcbiAgICBtVGFza3NMaXN0OiBBcnJheTxNYWludGVuYW5jZVRhc2s+O1xuXG4gICAgY29uc3RydWN0b3IoXG4gICAgICAgIHByaXZhdGUgcm91dGVyRXh0ZW5zaW9uczogUm91dGVyRXh0ZW5zaW9ucywgXG4gICAgICAgIHByaXZhdGUgcGFnZTogUGFnZSwgXG4gICAgICAgIHByaXZhdGUgY29uZmlndXJhdGlvblNlcnZpY2U6IENvbmZpZ3VyYXRpb25TZXJ2aWNlLFxuICAgICAgICBwcml2YXRlIGNoYW5nZURldGVjdG9yUmVmOiBDaGFuZ2VEZXRlY3RvclJlZixcbiAgICAgICAgcHJpdmF0ZSBtdGFza1NlcnZpY2U6IE1haW50ZW5hbmNlVGFza1NlcnZpY2UsXG4gICAgICAgIHByaXZhdGUgZm9udGljb246IFROU0ZvbnRJY29uU2VydmljZVxuICAgICkgeyBcbiAgICAgICAgc3VwZXIoY2hhbmdlRGV0ZWN0b3JSZWYpOyBcblxuICAgICAgICB0aGlzLm1UYXNrc09icyA9IHRoaXMubXRhc2tTZXJ2aWNlLmdldE1haW50ZW5hbmNlVGFza3MoKTtcbiAgICAgICAgXG4gICAgICAgIHRoaXMubVRhc2tzT2JzLnN1YnNjcmliZSh0YXNrcyA9PiB7XG4gICAgICAgICAgICB0aGlzLm1UYXNrc0xpc3QgPSB0YXNrcztcbiAgICAgICAgfSlcbiAgICB9XG5cbiAgICBuZ09uSW5pdCgpIHtcbiAgICAgICAgdGhpcy5wYWdlLmFjdGlvbkJhckhpZGRlbiA9IGZhbHNlO1xuICAgICAgICB0aGlzLmNvbnRlbnQgPSB0aGlzLnNhbXBsZVRleHQ7XG4gICAgfVxuXG4gICAgcHVibGljIG9uSW5kZXhDaGFuZ2VkKGFyZ3MpIHtcbiAgICAgICAgbGV0IHRhYlZpZXcgPSA8VGFiVmlldz5hcmdzLm9iamVjdDtcbiAgICAgICAgY29uc29sZS5sb2coXCJTZWxlY3RlZCBpbmRleCBjaGFuZ2VkISBOZXcgaW54ZWQ6IFwiICsgdGFiVmlldy5zZWxlY3RlZEluZGV4KTtcbn1cbn1cbiJdfQ==

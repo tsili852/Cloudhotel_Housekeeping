@@ -37,4 +37,9 @@ export class MainComponent extends DrawerPage implements OnInit {
     technitiansSelected() {
         this.routerExtensions.navigate(["/tech-rooms"], { clearHistory: true });
     }
+
+    settingsSelected() {
+        this.routerExtensions.navigate(["settings", { clearHistory: true }]);
+    }
+
 }
