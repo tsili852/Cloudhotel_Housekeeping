@@ -11,6 +11,7 @@ import { ConfigurationService } from "../../shared/configuration.service";
 import { TabView, SelectedIndexChangedEventData } from "ui/tab-view";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { MaintenanceTask, MaintenanceTaskService } from "../../shared/maintenance-task/index";
+import { Room, RoomService } from "../../shared/room";
 
 @Component({
     selector: "settings",
@@ -25,12 +26,16 @@ export class SettingsComponent extends DrawerPage implements OnInit {
     mTasksObs: Observable<any>;
     mTasksList: Array<MaintenanceTask>;
 
+    roomsObs: Observable<any>;
+    roomsList: Array<Room>;
+
     constructor(
         private routerExtensions: RouterExtensions, 
         private page: Page, 
         private configurationService: ConfigurationService,
         private changeDetectorRef: ChangeDetectorRef,
         private mtaskService: MaintenanceTaskService,
+        private roomService: RoomService,
         private fonticon: TNSFontIconService
     ) { 
         super(changeDetectorRef); 
@@ -49,6 +54,43 @@ export class SettingsComponent extends DrawerPage implements OnInit {
 
     public onIndexChanged(args) {
         let tabView = <TabView>args.object;
+        if (tabView.selectedIndex == 0) {
+            this.mTasksObs = this.mtaskService.getMaintenanceTasks();
+            
+            this.mTasksObs.subscribe(tasks => {
+                this.mTasksList = tasks;
+            })
+        } else {
+            this.roomsObs = this.roomService.getAllRooms(10);
+
+            this.roomsObs.subscribe(rooms => {
+                this.roomsList = rooms;
+            })
+        }
         console.log("Selected index changed! New inxed: " + tabView.selectedIndex);
-}
+    }
+
+    onAddMTask() {
+        this.mTasksList.push({
+            MaintenanceTaskID: null,
+            Name: ''
+        })
+    }
+
+    onAddRoom() {
+        this.roomsList.push({
+            Agent: null,
+            Arrival: new Date(),
+            Customer: null,
+            Departure: new Date(),
+            Number: "",
+            Repairs: null,
+            RoomID: null,
+            RoomType: null,
+            status: 0,
+            towels_status: 0,
+            bathroom_status: 0,
+            bed_status: 0
+        })
+    }
 }

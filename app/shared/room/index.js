@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var room_service_1 = require("./room.service");
+exports.RoomService = room_service_1.RoomService;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLCtDQUE2QztBQUt6QyxzQkFMSywwQkFBVyxDQUtMIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUm9vbSB9IGZyb20gXCIuL3Jvb21cIjtcclxuaW1wb3J0IHsgUm9vbVNlcnZpY2UgfSBmcm9tIFwiLi9yb29tLnNlcnZpY2VcIjtcclxuXHJcblxyXG5leHBvcnQge1xyXG4gICAgUm9vbSxcclxuICAgIFJvb21TZXJ2aWNlXHJcbn07Il19

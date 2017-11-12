@@ -2,7 +2,38 @@
     separator-color: transparent;
 }
 
+#rooms-list {
+    separator-color: transparent;
+}
+
 #mtask-title {
     font-size: 28;
     color: #C5A831;
+}
+
+.delete-button {
+    background-image: url("res://trash_black");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fab-button {
+    height: 50;
+    margin-bottom: 15;
+    margin-right: 5;
+    margin-left: 5;
+    horizontal-align: right;
+    vertical-align: bottom;
+}
+
+.add-button {
+    background-color: #C5A831;
+}
+
+.save-button {
+    background-color: #2e872d;
+}
+
+#save-room-button {
+    margin-right: 25;
 }
